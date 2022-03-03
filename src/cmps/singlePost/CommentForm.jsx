@@ -9,7 +9,7 @@ import send from "../../assets/imgs/send.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
-import { EmojiWindow } from "../EmojiWindow";
+import { EmojiWindow } from "../other/EmojiWindow";
 
 import { save } from "../../store/actions/itemActions";
 import { sendNotification } from "../../store/actions/notificationActions";

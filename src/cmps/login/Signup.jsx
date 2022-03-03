@@ -6,18 +6,18 @@ import React, {
 import styles from "./Login-Signup.module.css";
 // import { uploadImg } from '../services/img-upload-service';
 import { useForm } from "react-hook-form";
-import Autocomplete from "react-google-autocomplete";
+// import Autocomplete from "react-google-autocomplete";
 import ReactTooltip from "react-tooltip";
 
 // import DatePicker from 'react-date-picker';// i can use this later in the app itself
 import { useDispatch, useSelector } from "react-redux";
-import openEye from "../assets/imgs/open-eye.png";
-import closedEye from "../assets/imgs/closed-eye.png";
-import plus from "../assets/imgs/plus.png";
+import openEye from "../../assets/imgs/open-eye.png";
+import closedEye from "../../assets/imgs/closed-eye.png";
+import plus from "../../assets/imgs/plus.png";
 
-import { signup } from "../store/actions/userActions";
-import { validate, titleCase } from "../services/utilService";
-import { googleMapApiKey } from "../secrets";
+import { signup } from "../../store/actions/userActions";
+import { validate, titleCase } from "../../services/utilService";
+// import { googleMapApiKey } from "../secrets";
 
 export const Signup = ({ setCheckIfUser }) => {
   const { register, handleSubmit } = useForm();

@@ -3,7 +3,7 @@ import styles from "./Posts.module.css";
 import { SinglePost } from "./singlePost/SinglePost";
 import { useSelector, useDispatch } from "react-redux";
 import { queryPosts } from "../store/actions/itemActions";
-import { UpdateModal } from "./UpdateModal";
+import { UpdateModal } from "./singlePost/UpdateModal";
 export const Posts = () => {
   const { loggedInUser } = useSelector((state) => state.userModule);
   const { items, currentPost } = useSelector((state) => state.itemModule);

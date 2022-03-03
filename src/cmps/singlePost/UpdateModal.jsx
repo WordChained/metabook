@@ -5,10 +5,10 @@ import { useDispatch } from "react-redux";
 
 import styles from "./UdateModal.module.css";
 
-import xIcon from "../assets/imgs/x-icon.png";
+import xIcon from "../../assets/imgs/x-icon.png";
 
-import { save, setCurrentPost } from "../store/actions/itemActions";
-import { toggleScreenCover } from "../store/actions/userActions";
+import { save, setCurrentPost } from "../../store/actions/itemActions";
+import { toggleScreenCover } from "../../store/actions/userActions";
 
 export const UpdateModal = ({ previousText, post }) => {
   const { register, handleSubmit } = useForm();

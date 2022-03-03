@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { eventBusService } from "../services/eventBusService";
+import { eventBusService } from "../../services/eventBusService";
 import styles from "./PostMediaModal.module.css";
 
-import randomUser from "../assets/imgs/profile-color.png";
-import arrowIcon from "../assets/imgs/next.png";
+import randomUser from "../../assets/imgs/profile-color.png";
+import arrowIcon from "../../assets/imgs/next.png";
 
 import { useDispatch, useSelector } from "react-redux";
-import { toggleScreenCover } from "../store/actions/userActions";
-import { getTitledName } from "../services/utilService";
+import { toggleScreenCover } from "../../store/actions/userActions";
+import { getTitledName } from "../../services/utilService";
 export const PostMediaModal = () => {
   const dispatch = useDispatch();
   // I CAN OPEN THE CURRENT POST ===> MEDIA ===> CHOOSE BY IDX ===> WATCH ALL IMAGES WITH ARROWS

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styles from './LandingPage.module.css';
-import { Signup } from '../cmps/Signup';
-import { Login } from '../cmps/Login';
-import pandemic from '../assets/imgs/pandemic.png';
-import dice from '../assets/imgs/dice-no-bg.png';
+import React, { useState } from "react";
+import styles from "./LandingPage.module.css";
+import { Signup } from "../cmps/login/Signup";
+import { Login } from "../cmps/login/Login";
+import pandemic from "../assets/imgs/pandemic.png";
+import dice from "../assets/imgs/dice-no-bg.png";
 
 export const LandingPage = () => {
   const [checkIfUser, setCheckIfUser] = useState(true);
 
   return (
-    <section className={styles['landing-page']}>
+    <section className={styles["landing-page"]}>
       <header>
         <h1>Metabook</h1>
       </header>
@@ -21,7 +21,7 @@ export const LandingPage = () => {
               "Metabook is a where you shouldn't be when you have important stuff to do.\nNo, really, You should go do them..."
             }
           </p>
-          <div className={styles['pandemic-container']}>
+          <div className={styles["pandemic-container"]}>
             <img src={pandemic} alt="" />
           </div>
         </div>

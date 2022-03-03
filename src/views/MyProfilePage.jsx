@@ -11,7 +11,7 @@ import cameraIcon from "../assets/imgs/camera.png";
 import locationIcon from "../assets/imgs/location-pin.png";
 import randomUser from "../assets/imgs/user-512.png";
 import { getTitledName } from "../services/utilService";
-import { SingleMediaGallery } from "../cmps/SingleMediaGallery";
+import { SingleMediaGallery } from "../cmps/other/SingleMediaGallery";
 import { ProfilePictureEditPreview } from "../cmps/profile/ProfilePictureEditPreview";
 import { useRef } from "react";
 import { CoverPhotoEditPreview } from "../cmps/profile/CoverPhotoEditPreview";

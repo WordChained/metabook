@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SinglePost } from "../singlePost/SinglePost";
-import { UpdateModal } from "../UpdateModal";
+import { UpdateModal } from "../singlePost/UpdateModal";
 import { queryMyPosts } from "../../store/actions/itemActions";
 import styles from "./MyPosts.module.css";
 export const MyPosts = ({ userId }) => {

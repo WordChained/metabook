@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { getUsers } from "../store/actions/userActions";
+import { getUsers } from "../../store/actions/userActions";
 
 export const UsersSearchForm = React.memo(() => {
   const dispatch = useDispatch();

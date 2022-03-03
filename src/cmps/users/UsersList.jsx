@@ -3,8 +3,8 @@ import styles from "./UsersList.module.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 // import searchIcon from "../assets/imgs/search.png";
-import profilePicture from "../assets/imgs/profile-color.png";
-import { getTitledName } from "../services/utilService";
+import profilePicture from "../../assets/imgs/profile-color.png";
+import { getTitledName } from "../../services/utilService";
 
 export const UsersList = () => {
   const { filteredUsers, loggedInUser } = useSelector(

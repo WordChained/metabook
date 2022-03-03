@@ -18,7 +18,7 @@ import { ErrorPage } from './views/ErrorPage';
 
 import { Users } from './views/Users';
 import { UserMsg } from './cmps/UserMsg'
-import { PostMediaModal } from './cmps/PostMediaModal';
+import { PostMediaModal } from './cmps/singlePost/PostMediaModal';
 import { setReady, setLoggedIn } from './store/actions/userActions';
 import { getUserFromLocalStorage } from './services/userService'
 import { CoverScreen } from './UI/CoverScreen'

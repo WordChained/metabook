@@ -15,7 +15,7 @@ import { MyImages } from "../cmps/profile/MyImages";
 import { getTitledName } from "../services/utilService";
 import { addFriend, removeFriend } from "../store/actions/friendsActions";
 import { sendNotification } from "../store/actions/notificationActions";
-import { SingleMediaGallery } from "../cmps/SingleMediaGallery";
+import { SingleMediaGallery } from "../cmps/other/SingleMediaGallery";
 const Profiles = () => {
   const [singleMedia, setSingleMedia] = useState(null);
   const [isFriend, setIsFriend] = useState(false);

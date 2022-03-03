@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SingleMediaGallery.module.css";
-import closeIcon from "../assets/imgs/x-icon.png";
+import closeIcon from "../../assets/imgs/x-icon.png";
 
 export const SingleMediaGallery = ({ mediaItem, close }) => {
   const videoRegexCheck = new RegExp(

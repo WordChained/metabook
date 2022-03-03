@@ -24,7 +24,7 @@ import { uploadImg } from "../../services/img-upload-service";
 import { useDispatch, useSelector } from "react-redux";
 import { save, toggleUploadLoader } from "../../store/actions/itemActions";
 import { toggleScreenCover } from "../../store/actions/userActions";
-import { EmojiWindow } from "../EmojiWindow";
+import { EmojiWindow } from "../other/EmojiWindow";
 import { titleCase } from "../../services/utilService";
 export const CreatePost = React.memo(() => {
   const dispatch = useDispatch();
