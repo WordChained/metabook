@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 5px;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  height: max-content;
+}
+.container .friend {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.container .friend img {
+  align-self: center;
+  max-height: 60px;
+  /* border: white 3px solid; */
+  border-radius: 5px;
+  max-width: 100%;
+  object-fit: cover;
+}

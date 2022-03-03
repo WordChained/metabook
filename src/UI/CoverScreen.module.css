@@ -1,0 +1,9 @@
+.cover {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.829);
+  z-index: 3;
+}

@@ -1,0 +1,11 @@
+div.comments {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #69696993; */
+  align-items: flex-start;
+  max-height: 500px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  margin-top: 5px;
+  overflow-x: hidden;
+}

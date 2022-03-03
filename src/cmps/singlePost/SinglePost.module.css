@@ -1,0 +1,118 @@
+.content-container {
+  /* background-color: rgba(138, 138, 138, 0.068); */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.content-container .text-length {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+.content-container p {
+  font-size: 1.1rem;
+  padding: 5px;
+  margin: 0;
+  overflow: hidden;
+  width: 95%;
+  max-width: 610px;
+  white-space: pre-wrap;
+}
+.content-container .feeling {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 5px;
+  margin-left: 40px;
+  background-color: rgba(95, 95, 95, 0.788);
+  padding: 4px 8px 4px 8px;
+  border-radius: 3em;
+  color: rgb(240, 148, 148);
+}
+
+.content-container .feeling img {
+  background-color: unset;
+  height: 25px;
+}
+.content-container button {
+  background-color: rgba(175, 175, 175, 0.445);
+  border-radius: 3em;
+  padding: 5px;
+  border: none;
+  align-self: flex-end;
+  width: 20%;
+  min-height: 30px;
+  min-width: 100px;
+  color: white;
+  /* margin-left: 2px; */
+}
+.options {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  filter: invert(50%) sepia(0%) saturate(791%) hue-rotate(85deg)
+    brightness(115%) contrast(100%);
+  cursor: pointer;
+}
+.options:hover {
+  filter: invert(100%) sepia(0%) saturate(791%) hue-rotate(85deg)
+    brightness(115%) contrast(100%);
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  /* border: white 1.5px solid; */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3d3d3d93;
+  align-self: center;
+  width: 100%;
+  max-width: 668px;
+  min-height: 150px;
+  position: relative;
+}
+.post-user-image-container img {
+  height: 48px;
+  width: 48px;
+}
+
+.post .post-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post .post-info span {
+  display: flex;
+  flex-direction: column;
+}
+.post .post-info span:nth-child(1) {
+  font-size: 1.3rem;
+}
+.post .post-info span:nth-child(1):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.post .post-name-date-container span:nth-child(2) {
+  color: grey;
+}
+.post .post-info .post-user-image-container {
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
+  .post {
+    width: 50%;
+  }
+}

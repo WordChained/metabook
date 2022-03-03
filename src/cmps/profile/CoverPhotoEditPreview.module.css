@@ -1,0 +1,46 @@
+.container {
+  position: absolute;
+  background-color: #1f1f1f;
+
+  width: 70%;
+  max-width: 1000px;
+  height: 100%;
+}
+.preview {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 45vh;
+}
+.actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 10%;
+  height: 50%;
+  border-top-left-radius: 3em;
+  border-bottom-left-radius: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+  background-color: #555555b7;
+}
+.actions img {
+  height: 60px;
+  object-fit: contain;
+  filter: invert(70%);
+  cursor: pointer;
+}
+.actions img:hover {
+  opacity: 1;
+}
+.actions .ok:hover {
+  filter: invert(68%) sepia(29%) saturate(856%) hue-rotate(87deg)
+    brightness(95%) contrast(92%);
+}
+.actions .cancel:hover {
+  filter: invert(29%) sepia(62%) saturate(2515%) hue-rotate(337deg)
+    brightness(107%) contrast(100%);
+}

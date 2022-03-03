@@ -1,0 +1,113 @@
+.comment-form {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  /* margin: 5px 0; */
+  gap: 5px;
+  /* border-top: 1px solid grey; */
+  /* border-bottom: 1px solid grey; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background-color: #303030;
+  /* box-shadow: 3px 2px 5px -4px rgb(88, 88, 88); */
+}
+.comment-form .actions {
+  position: absolute;
+  width: max-content;
+  display: flex;
+  align-self: center;
+  margin: 5px 0;
+  gap: 2px;
+  right: 60px;
+  height: 90%;
+  border-radius: 50%;
+}
+.comment-form .actions img {
+  height: 100%;
+  cursor: pointer;
+  padding: 5px 5px;
+  filter: invert(98%) sepia(98%) saturate(0%) hue-rotate(355deg)
+    brightness(101%) contrast(104%);
+}
+.comment-form .actions img:hover {
+  background-color: rgb(170, 168, 168);
+  border-radius: 50%;
+}
+.comment-form .image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comment-form .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.comment-form form {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  position: relative;
+}
+.comment-form form textarea {
+  height: 100%;
+  flex: 5;
+  padding: 7px 100px 0 10px;
+  outline: none;
+  border-radius: 3em;
+  border: 0.5px grey solid;
+  color: white;
+  background-color: rgb(70, 70, 70);
+  resize: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 1.03rem;
+}
+.comment-form form input::placeholder {
+  color: rgba(255, 255, 255, 0.678);
+}
+.comment-form form button {
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-form form button img {
+  height: 90%;
+  object-fit: cover;
+  align-self: center;
+  filter: invert(41%) sepia(62%) saturate(4059%) hue-rotate(206deg)
+    brightness(111%) contrast(101%);
+}
+.comment-form form button:disabled {
+  cursor: default;
+}
+.comment-form form button:disabled img {
+  filter: invert(27%) sepia(0%) saturate(47%) hue-rotate(198deg) brightness(91%)
+    contrast(90%);
+}
+
+@media (max-width: 600px) {
+  .comment-form form input {
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+  }
+}
+.emoji-window-container {
+  position: absolute;
+  bottom: 80px;
+  right: 60px;
+}

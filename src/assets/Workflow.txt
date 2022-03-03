@@ -1,0 +1,87 @@
+- design text posts V
+- design image/video posts V
+- design and implement previews to images/videos/profile pictures
+- optional: design canvas text posts
+
+- design a post form:
+ * text
+ * image
+ * video
+ * multiple media items (images, videos and a combo)
+ * optional: canvas text
+
+- implement posting
+
+- implement adding a like
+- implement adding a comment
+- implement sharing and posting in your name
+
+- create + design login/signup page
+
+%%%backend%%%%
+- create database
+- arrange it like the mock server and adjust what you can't duplicate
+- sort in the server side (mongo)
+
+- learn what cdc is
+- learn what kafka is
+
+data structures:
+comments: {commentId:{userId: 123abc, text: 'bla bla bla', media: 'foobar.png'}}
+users: {
+    someUserId123: {
+        PersonalInformation: {
+            name:{first: 'bobo' ,middle: 'yaron', last: 'cohen', title: 'Mr/Ms/Mrs/Dr/etc...'},
+            DOB:{day: 21, month: 6, year: 1992, fullDate: TIMESTAMP},
+            profilePicture: 'foo.png',
+            address: 'SOME_ADDRESS' / {lang : CORDS, long: CORDS},
+            carreerInfo: {[]},
+            educationInfo: {[]}
+        }
+        activity: {
+            posts: {POST_MAP}, comments: {COMMENT_MAP}, reactions: {
+                reactionId123: {
+                        type: 'like/love/sad/etc..',
+                        date: 'TIMESTAMP',
+                        targetType: 'post/comment/image/video/note/etc...'
+                        }
+                    },
+            media: {
+                images:{IMAGE_MAP},
+                videos:{VIDEO_MAP}
+                }
+            },
+        }
+    }
+posts:
+posts: { postId:{
+
+    post.text: 'This is yet another post',
+        post.media: 'https://image.shutterstock.com/image-vector/check-back-soon-hand-lettering-600w-1379832464.jpg',
+        post.engagement : {
+            reactions: { likes: ['123abc'], angry: ['123abc', '456def'], love: ['123abc'], sad: ['123abc'] },
+            comments: {
+                'comment123': {
+                    userId: '456def', text: 'blo blo blo', media: 'foobar.png', date: randomDate,
+                    comments: {
+
+                    },
+                    reactions: {
+                        likes: ['456def'], angry: [], love: [], sad: []
+                    }
+                },
+                'comment456': {
+                    userId: '123abc', text: 'bla bla bla', media: 'foobar.png', date: randomDate,
+                    comments: {
+
+                    },
+                    reactions: {
+                        likes: ['123abc'], angry: [], love: [], sad: []
+                    }
+                },
+            }
+        }
+}
+}
+
+    

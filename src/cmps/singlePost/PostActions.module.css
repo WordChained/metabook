@@ -1,0 +1,35 @@
+.container {
+  border: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px 5px 10px;
+  position: relative;
+  border-top: 1px grey solid;
+  border-bottom: 1px grey solid;
+}
+.container button {
+  background-color: transparent;
+  border-radius: 3em;
+  padding: 5px;
+  border: none;
+  align-self: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.container button:first-child {
+  cursor: unset;
+}
+.container button img {
+  width: max-content;
+  height: 35px;
+  cursor: pointer;
+  /* filter: invert(80%) saturate(20%); */
+}
+.container button:hover {
+  background-color: rgba(161, 161, 161, 0.445);
+}

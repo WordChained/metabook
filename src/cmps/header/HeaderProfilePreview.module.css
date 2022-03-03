@@ -1,0 +1,91 @@
+.preview-container {
+  display: flex;
+  height: 100%;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 30%;
+}
+.preview-container .image-name-container {
+  display: flex;
+  /* gap: 5px; */
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-radius: 3em;
+  height: 65%;
+  cursor: pointer;
+  /* background-color: rgba(58, 110, 158, 0.507); */
+  /* background-color: rgb(54, 54, 54); */
+  color: #2e89ff;
+  /* padding: 0 5px 0 5px; */
+}
+.preview-container .image-name-container:hover {
+  /* background-color: rgba(90, 156, 218, 0.507); */
+  background-color: rgb(78, 78, 78);
+}
+.preview-container .image-name-container .image-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* margin: 0 3px 0 3px; */
+  /* margin: 3px; */
+}
+.preview-container .image-name-container .image-container img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+  padding: 0;
+  margin: 3px 5px 3px 0;
+}
+
+.preview-container .image-name-container span {
+  width: max-content;
+  margin: 0 3px 0 3px;
+}
+
+.preview-container .dropdown-window-btn-container {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin: 0 7px 0 7px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: rgb(61, 61, 61);
+  cursor: pointer;
+}
+.unread-count {
+  background-color: rgb(184, 0, 0);
+  color: white;
+  position: absolute;
+  padding: 2px;
+  height: 25px;
+  width: 25px;
+  align-items: center;
+  text-align: center;
+  top: 5px;
+  right: 0;
+  border-radius: 100%;
+  font-size: 0.9rem;
+}
+.preview-container .dropdown-window-btn-container.open {
+  background-color: rgba(58, 110, 158, 0.507);
+}
+.preview-container .dropdown-window-btn-container.open img {
+  filter: invert(41%) sepia(49%) saturate(1742%) hue-rotate(194deg)
+    brightness(102%) contrast(103%);
+}
+
+.preview-container .dropdown-window-btn-container img {
+  filter: invert(90%) sepia(10%) saturate(86%) hue-rotate(185deg)
+    brightness(105%) contrast(87%);
+}
+.preview-container .dropdown-window-btn-container:hover {
+  background-color: rgb(98, 98, 98);
+}

@@ -1,0 +1,61 @@
+.emoji-window-container {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 2;
+}
+
+.emoji-window-container aside {
+  background-color: rgb(46, 46, 46);
+  box-shadow: -2px 2px 5px black;
+  border: none;
+  padding: 5px;
+}
+.emoji-window-container aside nav {
+  margin-bottom: 5px;
+}
+.emoji-window-container aside nav > * {
+  background-color: rgb(105, 105, 105) !important;
+  /* box-shadow: -2px 2px 5px black;
+  border: none;
+  padding: 5px; */
+}
+
+.emoji-window-container aside div:nth-child(3) input {
+  background-color: #282c34;
+  color: white;
+  border: none !important;
+  /* margin-left: unset; */
+  padding-right: 30px;
+}
+
+[data-display-name='smileys & people'] {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+[data-display-name='smileys & people']::before {
+  background-color: rgba(36, 36, 36, 0.459) !important;
+  display: flex;
+  color: white !important;
+}
+
+[data-display-name='smileys & people'] button {
+  background-color: transparent !important;
+  border: none !important;
+}
+[data-display-name='smileys & people'] button:hover {
+  background-color: rgb(42, 42, 42) !important;
+}
+
+[data-display-name='Recently Used']::before {
+  background-color: transparent !important;
+}
+[data-display-name='Recently Used'] > li button {
+  background-color: transparent !important;
+  border: none !important;
+}
+[data-display-name='Recently Used'] > li button:hover {
+  background-color: rgb(42, 42, 42) !important;
+}

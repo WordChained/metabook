@@ -1,0 +1,39 @@
+.reactions {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  border-radius: 3em;
+  padding: 7px;
+  background-color: rgba(87, 87, 87, 0.863);
+  top: -70px;
+  left: 0;
+  width: max-content;
+  height: 60px;
+  border: 1px solid white;
+  transition: all 0.3s ease-in-out;
+}
+
+.reactions :first-child:hover {
+  /* transform: rotate(22deg); */
+  animation: bounce2 infinite 0.3s ease-in-out alternate;
+}
+.reactions img:not(:first-child):hover {
+  animation: bounce infinite 0.3s ease-in-out alternate;
+}
+
+@keyframes bounce2 {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}

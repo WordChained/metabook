@@ -1,0 +1,57 @@
+.comment {
+  padding: 5px;
+  width: 92%;
+  display: flex;
+  gap: 5px;
+  align-self: center;
+  /* height: max-content; */
+}
+
+.comment .content .options {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+  filter: invert(50%);
+}
+.comment .content .options:hover {
+  filter: invert(100%);
+}
+.comment .comment-user-image {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.comment .comment-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.comment .content {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 90%;
+  height: max-content;
+  padding: 5px;
+  background-color: rgb(70, 70, 70);
+  position: relative;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.comment .text {
+  margin-left: 10px;
+}
+.comment .text.limit {
+  height: 120px;
+  overflow: hidden;
+}
+.comment .content span {
+  font-weight: 600;
+}
+
+.comment .content span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

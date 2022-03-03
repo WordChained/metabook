@@ -1,0 +1,23 @@
+.general-user-msg {
+  transition: all 0.7s ease-in-out;
+  position: fixed;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.795);
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  height: 100px;
+  font-size: 1.2rem;
+  top: -300px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 2;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: black;
+}
+.general-user-msg.show {
+  top: 63px;
+}

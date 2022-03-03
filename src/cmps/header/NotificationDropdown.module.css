@@ -1,0 +1,42 @@
+.dropdown {
+  position: absolute;
+  background-color: #587fa586;
+  display: flex;
+  flex-direction: column;
+  top: 65px;
+  width: 360px;
+  right: 0;
+  align-items: flex-start;
+  justify-content: center;
+  /* padding: 5px; */
+  border-radius: 10px;
+  max-height: 80vh;
+  /* overflow: auto; */
+  /* need to check the overflow */
+}
+.dropdown .angle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #587fa586;
+  position: absolute;
+  top: -10px;
+  right: 14px;
+}
+.dropdown h2 {
+  padding: 10px 0 0px 10px;
+  margin: 0;
+}
+.dropdown ul {
+  list-style: none;
+  align-self: center;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin: 0;
+  max-height: 77vh;
+  overflow: auto;
+}

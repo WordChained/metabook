@@ -1,0 +1,59 @@
+.item {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+}
+.item.unread {
+  background-color: rgba(64, 224, 208, 0.178);
+  border-radius: 10px;
+}
+.item .image-conatiner {
+  background-color: rgba(35, 109, 101, 0.404);
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+}
+.item .image-conatiner img {
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  flex: 1;
+}
+.item .content {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+.actions {
+  display: flex;
+  height: 32px;
+  gap: 5px;
+  align-items: center;
+}
+.actions img {
+  height: 100%;
+}
+.actions img:hover:nth-child(1) {
+  filter: invert(70%) sepia(92%) saturate(327%) hue-rotate(79deg)
+    brightness(85%) contrast(90%);
+}
+.actions img:hover:nth-child(2) {
+  filter: invert(42%) sepia(58%) saturate(1497%) hue-rotate(325deg)
+    brightness(90%) contrast(130%);
+}
+
+/* this is the spaces in the notifications */
+.item .content div span:not(:last-child) {
+  margin-right: 4px;
+}
+
+.item .content .bold {
+  font-weight: 600;
+}
+
+.item:hover {
+  background-color: #1a9ba7;
+  cursor: pointer;
+  border-radius: 10px;
+}

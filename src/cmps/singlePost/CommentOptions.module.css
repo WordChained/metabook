@@ -1,0 +1,33 @@
+.window {
+  list-style: none;
+  position: absolute;
+  top: 6px;
+  right: -100px;
+  background-color: #303030;
+  border-radius: 5px;
+  border-top-right-radius: unset;
+  padding: 3px;
+  display: flex;
+  gap: 3px;
+  animation: appear-from-right 0.3s ease-in-out 1 forwards;
+  box-shadow: -2px 2px 3px rgb(8, 8, 8);
+}
+.window li img {
+  filter: invert(70%);
+  height: 24px;
+  cursor: pointer;
+}
+.window li img:hover {
+  filter: invert(100%);
+}
+.window span {
+  /* align-self: center; */
+}
+@keyframes appear-from-right {
+  from {
+    right: -100px;
+  }
+  to {
+    right: 4px;
+  }
+}

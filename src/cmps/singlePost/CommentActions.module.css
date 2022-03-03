@@ -1,0 +1,13 @@
+.actions {
+  display: flex;
+  margin-left: 80px;
+  padding: 5px;
+  gap: 3px;
+  font-size: 0.9rem;
+}
+.actions span:not(:last-child) {
+  cursor: pointer;
+}
+.actions span:not(:last-child):hover {
+  text-decoration: underline;
+}
