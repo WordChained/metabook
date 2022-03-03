@@ -50,6 +50,7 @@ const Profiles = () => {
   };
 
   const checkIsFriend = () => {
+    if (!friends) return;
     const exists = friends.find((friend) => {
       return friend.userId === loggedInUser.userId;
     });

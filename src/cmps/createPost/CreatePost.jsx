@@ -123,8 +123,6 @@ export const CreatePost = React.memo(() => {
             media: filePromises && filePromises[0] ? filePromises : [],
             publisher: {
               id: loggedInUser.userId,
-              profilePicture: loggedInUser.profilePicture,
-              name: loggedInUser.name,
             },
             feeling: postFeeling ? postFeeling : "",
           },
