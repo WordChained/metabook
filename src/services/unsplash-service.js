@@ -1,4 +1,5 @@
-const UNSPLASH_ACCESS_KEY = 'yFJdFzQ9D0i1drViCr7KoYTQfGbLGJWszdW_cJ1rg_c'
+import { UNSPLASH_ACCESS_KEY } from "../secrets";
+
 
 
 export const unsplashService = {

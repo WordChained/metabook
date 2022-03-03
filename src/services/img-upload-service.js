@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { CLOUDINARY_UPLOAD_PRESET } from '../secrets';
 //cloudinary-service
 // AXIOS
 
 export const uploadImg = async (file, userId = 'unknown') => {
   // Defining our variables
-  const UPLOAD_PRESET = 'gxmzvuyc' // Insert yours
+  const UPLOAD_PRESET = CLOUDINARY_UPLOAD_PRESET // Insert yours
   const CLOUD_NAME = 'wordchained' // Insert yours
   const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
   const FORM_DATA = new FormData();
