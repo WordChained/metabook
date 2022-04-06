@@ -163,9 +163,9 @@ export const PostActions = ({
         <button onClick={() => onAddComment()}>
           <img src={!showComments ? commentIcon : closeCommentIcon} alt='' />
         </button>
-        <button onClick={() => sharePost()}>
+        {/* <button onClick={() => sharePost()}>
           <img src={shareIcon} alt='' />
-        </button>
+        </button> */}
       </div>
     </Fragment>
   );
