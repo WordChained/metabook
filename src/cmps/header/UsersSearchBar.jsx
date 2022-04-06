@@ -14,14 +14,13 @@ export const UsersSearchBar = () => {
   const onSubmit = (data) => {
     if (showForm) {
       //this is where i send the info
-      if (data['filter'].length) {
+      if (data['filter'].length > 0) {
         dispatch(getUsers(data['filter']));
+        navigate('/search-users');
+        reset();
+        setShowForm(false);
       }
-      navigate('/search-users');
-      reset();
-      setShowForm(false);
     } else {
-      console.log('ite false');
       setShowForm(true);
     }
   };

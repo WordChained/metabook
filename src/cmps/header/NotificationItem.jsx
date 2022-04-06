@@ -118,7 +118,7 @@ export const NotificationItem = ({ notification }) => {
             </span>
           )}
         </div>
-        <span>{prettyDate(isoDateTime)}</span>
+        <span className={styles.date}>{prettyDate(isoDateTime)}</span>
       </div>
     </li>
   );
