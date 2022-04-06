@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import styles from './MyprofilePage.module.css';
+import styles from './MyProfilePage.module.css';
 
 import { CreatePost } from '../cmps/createPost/CreatePost';
 import { MyPosts } from '../cmps/profile/MyPosts';
@@ -25,6 +25,8 @@ export const MyProfilePage = () => {
   const [fileToUpload, setFileToUpload] = useState(null);
   const [showUserDetailsUpdateModal, setShowUserDetailsUpdateModal] =
     useState(false);
+  const [coverPhotoImageError, setCoverPhotoImageError] = useState(false);
+  const [profileImageError, setProfileImageError] = useState(false);
 
   const profilePictureRef = useRef();
   const coverPhotoRef = useRef();
@@ -85,12 +87,15 @@ export const MyProfilePage = () => {
       )}
       <div className={styles['upper-part-container']}>
         <div className={styles['hero-container']}>
-          {loggedInUser.coverPhoto && (
+          {!coverPhotoImageError && loggedInUser.coverPhoto && (
             <img
               className={styles.hero}
               src={loggedInUser.coverPhoto}
               alt=''
               onClick={() => setSingleMedia(loggedInUser.coverPhoto)}
+              onError={() => {
+                setCoverPhotoImageError(true);
+              }}
             />
           )}
           {newCoverPhoto && (
@@ -124,12 +129,15 @@ export const MyProfilePage = () => {
           <img
             className={styles['profile-picture']}
             src={
-              loggedInUser.profilePicture
+              loggedInUser.profilePicture && !profileImageError
                 ? loggedInUser.profilePicture
                 : randomUser
             }
             alt=''
             onClick={() => setSingleMedia(loggedInUser.profilePicture)}
+            onError={() => {
+              setProfileImageError(true);
+            }}
           />
           <span className={styles['edit-container']}>
             <label className={styles['file-label']}>

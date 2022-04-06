@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getUserForProfile } from '../store/actions/userActions';
 import { MyPosts } from '../cmps/profile/MyPosts';
-import styles from './MyprofilePage.module.css';
+import styles from './MyProfilePage.module.css';
 // import { CreatePost } from '../cmps/createPost/CreatePost';
 // import { MyImages } from '../cmps/profile/MyImages';
 import { FriendsList } from '../cmps/profile/FriendsList';
@@ -24,6 +24,9 @@ const Profiles = () => {
   const [isPendingFriendRequest, setIsPendingFriendRequest] = useState(false);
   const [isMoreDropDownOpen, setIsMoreDropDownOpen] = useState(false);
   const [callBackUser, setCallBackUser] = useState(null);
+  const [coverPhotoImageError, setCoverPhotoImageError] = useState(false);
+  const [profileImageError, setProfileImageError] = useState(false);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const { loggedInUser } = useSelector((state) => state.userModule);
@@ -152,12 +155,13 @@ const Profiles = () => {
             )}
           </button>
           <div className={styles['hero-container']}>
-            {callBackUser.coverPhoto && (
+            {!coverPhotoImageError && callBackUser.coverPhoto && (
               <img
                 className={styles.hero}
                 src={callBackUser.coverPhoto}
                 alt=''
                 onClick={() => setSingleMedia(callBackUser.coverPhoto)}
+                onError={() => setCoverPhotoImageError(true)}
               />
             )}
           </div>
@@ -165,12 +169,13 @@ const Profiles = () => {
             <img
               className={styles['profile-picture']}
               src={
-                callBackUser.profilePicture
+                callBackUser.profilePicture && !profileImageError
                   ? callBackUser.profilePicture
                   : randomUser
               }
               alt=''
               onClick={() => setSingleMedia(callBackUser.profilePicture)}
+              onError={() => setProfileImageError(true)}
             />
             {!id && (
               <span className={styles['edit-container']}>
