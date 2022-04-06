@@ -23,10 +23,10 @@ export const PostOptions = ({ postId, userId, publisherId, post }) => {
   return (
     <ul className={styles.list}>
       <li onClick={deletePost}>
-        <img src={trash} alt="" /> Remove
+        <img src={trash} alt='' /> Remove
       </li>
       <li onClick={updatePost}>
-        <img src={editIcon} alt="" /> Edit Text
+        <img src={editIcon} alt='' /> Edit Text
       </li>
     </ul>
   );

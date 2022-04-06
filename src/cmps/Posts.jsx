@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import styles from "./Posts.module.css";
-import { SinglePost } from "./singlePost/SinglePost";
-import { useSelector, useDispatch } from "react-redux";
-import { queryPosts } from "../store/actions/itemActions";
-import { UpdateModal } from "./singlePost/UpdateModal";
+import React, { useEffect } from 'react';
+import styles from './Posts.module.css';
+import { SinglePost } from './singlePost/SinglePost';
+import { useSelector, useDispatch } from 'react-redux';
+import { queryPosts } from '../store/actions/itemActions';
+import { UpdateModal } from './singlePost/UpdateModal';
 export const Posts = () => {
   const { loggedInUser } = useSelector((state) => state.userModule);
   const { items, currentPost } = useSelector((state) => state.itemModule);
@@ -15,13 +15,13 @@ export const Posts = () => {
     dispatch(queryPosts(loggedInUser.userId));
   };
   useEffect(() => {
-    console.log("posts is re-rendered");
+    console.log('posts is re-rendered');
     getPosts();
   }, []);
 
   if (!items.posts?.length) {
     return (
-      <div className={styles["lds-grid"]}>
+      <div className={styles['lds-grid']}>
         <div></div>
         <div></div>
         <div></div>

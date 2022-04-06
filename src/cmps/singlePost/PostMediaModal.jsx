@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { eventBusService } from "../../services/eventBusService";
-import styles from "./PostMediaModal.module.css";
+import React, { useEffect, useState } from 'react';
+import { eventBusService } from '../../services/eventBusService';
+import styles from './PostMediaModal.module.css';
 
-import randomUser from "../../assets/imgs/profile-color.png";
-import arrowIcon from "../../assets/imgs/next.png";
+import randomUser from '../../assets/imgs/profile-color.png';
+import arrowIcon from '../../assets/imgs/next.png';
 
-import { useDispatch, useSelector } from "react-redux";
-import { toggleScreenCover } from "../../store/actions/userActions";
-import { getTitledName } from "../../services/utilService";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleScreenCover } from '../../store/actions/userActions';
+import { getTitledName } from '../../services/utilService';
 export const PostMediaModal = () => {
   const dispatch = useDispatch();
   // I CAN OPEN THE CURRENT POST ===> MEDIA ===> CHOOSE BY IDX ===> WATCH ALL IMAGES WITH ARROWS
@@ -24,14 +24,14 @@ export const PostMediaModal = () => {
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", (ev) => {
-      if (ev.key === "Escape") {
+    window.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape') {
         setShowModal(false);
         dispatch(toggleScreenCover(false));
       } else return;
     });
     eventBusService.on(
-      "media-modal",
+      'media-modal',
       ({ clickedIdx, publisher, date, allMedia }) => {
         // setIsVideo(type === 'video');
         setCurrentIdx(clickedIdx);
@@ -63,34 +63,34 @@ export const PostMediaModal = () => {
   };
 
   if (!publisherInfo)
-    return <div className={styles["container"]}>Loading...</div>;
+    return <div className={styles['container']}>Loading...</div>;
   return (
     <>
       <div
-        className={showModal ? styles["container-show"] : styles["container"]}
+        className={showModal ? styles['container-show'] : styles['container']}
       >
         <div className={styles.content}>
           <button className={styles.exit} onClick={exitModal}>
             X
           </button>
           <div className={styles.publisher}>
-            <div className={styles["image-container"]}>
+            <div className={styles['image-container']}>
               <img
                 src={
                   publisherInfo.profilePicture
                     ? publisherInfo.profilePicture
                     : randomUser
                 }
-                alt=""
+                alt=''
               />
             </div>
             <div className={styles.info}>
               <p>{getTitledName(publisherInfo.name)}</p>
-              <span>{new Date(postDate).toLocaleDateString("he-IL")}</span>
+              <span>{new Date(postDate).toLocaleDateString('he-IL')}</span>
             </div>
           </div>
           {!currentMedia && (
-            <div className={styles["lds-grid"]}>
+            <div className={styles['lds-grid']}>
               <div></div>
               <div></div>
               <div></div>
@@ -102,19 +102,19 @@ export const PostMediaModal = () => {
               <div></div>
             </div>
           )}
-          <div className={styles["media-item-container"]}>
+          <div className={styles['media-item-container']}>
             {currentMediaArray.length > 2 && (
               <img
                 className={styles.left}
                 src={arrowIcon}
-                alt=""
+                alt=''
                 onClick={() => getCorrectIndex(-1)}
               />
             )}
             {currentMediaArray.length && (
               <div>
                 {!videoRegexCheck.test(currentMedia) && (
-                  <img src={currentMedia.url} alt="" />
+                  <img src={currentMedia.url} alt='' />
                 )}
                 {videoRegexCheck.test(currentMedia) && (
                   <video src={currentMedia.url}></video>
@@ -125,7 +125,7 @@ export const PostMediaModal = () => {
               <img
                 className={styles.right}
                 src={arrowIcon}
-                alt=""
+                alt=''
                 onClick={() => getCorrectIndex(1)}
               />
             )}

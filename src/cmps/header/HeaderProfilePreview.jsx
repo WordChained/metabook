@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import styles from "./HeaderProfilePreview.module.css";
-import { ProfileDropdown } from "./ProfileDropdown";
-import RandomUser from "../../assets/imgs/profile-color.png";
+import React, { useState, useEffect } from 'react';
+import styles from './HeaderProfilePreview.module.css';
+import { ProfileDropdown } from './ProfileDropdown';
+import RandomUser from '../../assets/imgs/profile-color.png';
 
-import downArrowFull from "../../assets/imgs/down-arrow-full.png";
-import notificationBellIcon from "../../assets/imgs/bell.png";
-import { NotificationDropdown } from "./NotificationDropdown";
-import { useNavigate } from "react-router";
-import { titleCase } from "../../services/utilService";
-import { useDispatch, useSelector } from "react-redux";
+import downArrowFull from '../../assets/imgs/down-arrow-full.png';
+import notificationBellIcon from '../../assets/imgs/bell.png';
+import { NotificationDropdown } from './NotificationDropdown';
+import { useNavigate } from 'react-router';
+import { titleCase } from '../../services/utilService';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getNotifications,
   updateNotificationsStatus,
-} from "../../store/actions/notificationActions";
+} from '../../store/actions/notificationActions';
 
 export const HeaderProfilePreview = ({
   user,
@@ -32,7 +32,7 @@ export const HeaderProfilePreview = ({
   const getUnreadNotifications = (notifications) => {
     if (!notifications.length) return;
     const unreadNotifications = notifications.filter((ntf) => {
-      return ntf.status === "unread";
+      return ntf.status === 'unread';
     });
     setUnreadNotifications(unreadNotifications.map((ntf) => ntf.id));
   };
@@ -54,17 +54,17 @@ export const HeaderProfilePreview = ({
   }, []);
 
   return (
-    <div className={styles["preview-container"]}>
+    <div className={styles['preview-container']}>
       <div
-        className={styles["image-name-container"]}
+        className={styles['image-name-container']}
         onClick={() => {
-          navigate("/my-profile");
+          navigate('/my-profile');
         }}
       >
-        <span className={styles["image-container"]}>
+        <span className={styles['image-container']}>
           <img
             src={user.profilePicture ? user.profilePicture : RandomUser}
-            alt=""
+            alt=''
           />
         </span>
         <span>{titleCase(user.name.first)}</span>
@@ -72,25 +72,25 @@ export const HeaderProfilePreview = ({
       <span
         onClick={toggleDropdown}
         className={`
-          ${styles["dropdown-window-btn-container"]} ${
-          showDropdown ? styles.open : ""
+          ${styles['dropdown-window-btn-container']} ${
+          showDropdown ? styles.open : ''
         }`}
       >
-        <img src={downArrowFull} alt="downArrow" />
+        <img src={downArrowFull} alt='downArrow' />
       </span>
       <span
         onClick={toggleNotificationDropdown}
         className={`
-          ${styles["dropdown-window-btn-container"]} ${
-          showNotificationDropdown ? styles.open : ""
+          ${styles['dropdown-window-btn-container']} ${
+          showNotificationDropdown ? styles.open : ''
         }`}
       >
         {unreadNotifications.length > 0 && (
-          <span className={styles["unread-count"]}>
+          <span className={styles['unread-count']}>
             {unreadNotifications.length}
           </span>
         )}
-        <img src={notificationBellIcon} alt="notification-bell" />
+        <img src={notificationBellIcon} alt='notification-bell' />
       </span>
       {showDropdown && (
         <ProfileDropdown setShowDropdown={setShowDropdown} user={user} />

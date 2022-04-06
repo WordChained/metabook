@@ -1,7 +1,7 @@
-import React from "react";
-import { Comment } from "./Comment";
-import { CommentForm } from "./CommentForm";
-import styles from "./Comments.module.css";
+import React from 'react';
+import { Comment } from './Comment';
+import { CommentForm } from './CommentForm';
+import styles from './Comments.module.css';
 
 export const Comments = ({ parentPublisherId, comments, postId }) => {
   return (

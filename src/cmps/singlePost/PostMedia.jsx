@@ -52,7 +52,7 @@ export const PostMedia = ({ media, publisher, date }) => {
           onClick={(ev) => handleImageClick(ev.target.src)}
         >
           {!videoRegexCheck.test(media[0]) ? (
-            <img src={media[0].url} alt="" />
+            <img src={media[0].url} alt='' />
           ) : (
             <video src={media[0].url}>{/* <source src={media[0]} /> */}</video>
           )}

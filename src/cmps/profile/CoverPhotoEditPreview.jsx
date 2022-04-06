@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./CoverPhotoEditPreview.module.css";
-import closeIcon from "../../assets/imgs/x-icon.png";
-import checkMark from "../../assets/imgs/check-mark.png";
-import { useDispatch } from "react-redux";
-import { uploadImageToSubFolder } from "../../services/img-upload-service";
-import { update } from "../../store/actions/userActions";
+import React, { useState } from 'react';
+import styles from './CoverPhotoEditPreview.module.css';
+import closeIcon from '../../assets/imgs/x-icon.png';
+import checkMark from '../../assets/imgs/check-mark.png';
+import { useDispatch } from 'react-redux';
+import { uploadImageToSubFolder } from '../../services/img-upload-service';
+import { update } from '../../store/actions/userActions';
 export const CoverPhotoEditPreview = ({
   cancelCoverPhotoEdit,
   newCP,
@@ -19,10 +19,10 @@ export const CoverPhotoEditPreview = ({
     const newCoverPhotoData = await uploadImageToSubFolder(
       fileToUpload,
       userId,
-      "cover-photos"
+      'cover-photos'
     );
     //update takes three args: userId,colName, newValue
-    dispatch(update(userId, "coverPhoto", newCoverPhotoData.url));
+    dispatch(update(userId, 'coverPhoto', newCoverPhotoData.url));
   };
   return (
     <div
@@ -34,19 +34,19 @@ export const CoverPhotoEditPreview = ({
         <div className={styles.actions}>
           <img
             src={closeIcon}
-            alt=""
+            alt=''
             onClick={cancelCoverPhotoEdit}
             className={styles.cancel}
           />
           <img
             src={checkMark}
-            alt=""
+            alt=''
             className={styles.ok}
             onClick={onChangeCoverPhoto}
           />
         </div>
       )}
-      <img className={styles.preview} src={newCP} alt="" />
+      <img className={styles.preview} src={newCP} alt='' />
     </div>
   );
 };

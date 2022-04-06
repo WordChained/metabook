@@ -40,10 +40,10 @@ export const MediaItem = ({ item, length }) => {
   } else if (imageRegexCheck.test(correctMedia)) {
     return (
       <div className={styles['image-container']}>
-        <img src={correctMedia} alt="" />
+        <img src={correctMedia} alt='' />
       </div>
     );
   } else {
-    return <img src={errorImage} alt="" />;
+    return <img src={errorImage} alt='' />;
   }
 };

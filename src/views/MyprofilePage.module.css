@@ -6,6 +6,7 @@
 .profile-page.no-scroll {
   height: 92vh;
   overflow-y: hidden;
+  /* padding-right: 10px; */
 }
 .upper-part-container {
   background: rgb(31, 31, 31);
@@ -32,6 +33,8 @@
   max-width: 1000px;
   height: 100%;
   cursor: pointer;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .profile-page .hero-container label {
@@ -121,6 +124,8 @@
   background-color: #3a3b3c;
   padding: 10px;
   border-radius: 100%;
+  height: 50px;
+  width: 50px;
   /* cursor: pointer; */
 }
 .profile-page .profile-picture-conatiner .edit-container:hover {

@@ -41,12 +41,12 @@ export const CommentActions = ({ commentDate }) => {
 
   return (
     <div className={styles.actions}>
-      <span>Like</span>
+      {/* <span>Like</span>
       <span> · </span>
       <span>Reply</span>
       <span> · </span>
       <span>Share</span>
-      <span> · </span>
+      <span> · </span> */}
       <span>{prettyDate(isoDateTime)}</span>
     </div>
   );

@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./SingleMediaGallery.module.css";
-import closeIcon from "../../assets/imgs/x-icon.png";
+import React from 'react';
+import styles from './SingleMediaGallery.module.css';
+import closeIcon from '../../assets/imgs/x-icon.png';
 
 export const SingleMediaGallery = ({ mediaItem, close }) => {
   const videoRegexCheck = new RegExp(
@@ -12,15 +12,15 @@ export const SingleMediaGallery = ({ mediaItem, close }) => {
       <img
         className={styles.close}
         src={closeIcon}
-        alt=""
+        alt=''
         onClick={() => close()}
       />
       {videoRegexCheck.test(mediaItem) ? (
-        <video className={styles["media-item"]}>
+        <video className={styles['media-item']}>
           <source src={mediaItem} />
         </video>
       ) : (
-        <img className={styles["media-item"]} src={mediaItem} alt="" />
+        <img className={styles['media-item']} src={mediaItem} alt='' />
       )}
     </div>
   );

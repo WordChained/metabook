@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./UsersList.module.css";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import React from 'react';
+import styles from './UsersList.module.css';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 // import searchIcon from "../assets/imgs/search.png";
-import profilePicture from "../../assets/imgs/profile-color.png";
-import { getTitledName } from "../../services/utilService";
+import profilePicture from '../../assets/imgs/profile-color.png';
+import { getTitledName } from '../../services/utilService';
 
 export const UsersList = () => {
   const { filteredUsers, loggedInUser } = useSelector(
@@ -18,7 +18,7 @@ export const UsersList = () => {
   //   else return `${name.first} ${name.last}`;
   // };
   const navigateToUser = (id) => {
-    if (id === loggedInUser.userId) navigate("/my-profile");
+    if (id === loggedInUser.userId) navigate('/my-profile');
     else navigate(`/profiles/${id}`);
   };
   if (!filteredUsers.length) {
@@ -32,7 +32,7 @@ export const UsersList = () => {
           <li key={user.userId}>
             <img
               src={user.profilePicture ? user.profilePicture : profilePicture}
-              alt=""
+              alt=''
             />
             <div className={styles.info}>
               <span

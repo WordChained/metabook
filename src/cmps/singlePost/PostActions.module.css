@@ -30,6 +30,10 @@
   cursor: pointer;
   /* filter: invert(80%) saturate(20%); */
 }
+.container button:not(:first-child) img {
+  /* this changes the color of the comment and share btns for every post*/
+  filter: invert(50%) sepia(100%) hue-rotate(220deg);
+}
 .container button:hover {
   background-color: rgba(161, 161, 161, 0.445);
 }

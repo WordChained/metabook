@@ -1,31 +1,31 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 
-import { FeelingDropdown } from "./FeelingDropdown";
-import { useForm } from "react-hook-form";
+import { FeelingDropdown } from './FeelingDropdown';
+import { useForm } from 'react-hook-form';
 
-import randomUser from "../../assets/imgs/profile-color.png";
+import randomUser from '../../assets/imgs/profile-color.png';
 // import sendIcon from '../../assets/imgs/send.png';
-import pictureIcon from "../../assets/imgs/picture-color.png";
-import videoIcon from "../../assets/imgs/video-player-color.png";
-import feelingIcon from "../../assets/imgs/feeling-color.png";
-import videoBG from "../../assets/imgs/video-bg.png";
-import smiley from "../../assets/imgs/smiley.png";
+import pictureIcon from '../../assets/imgs/picture-color.png';
+import videoIcon from '../../assets/imgs/video-player-color.png';
+import feelingIcon from '../../assets/imgs/feeling-color.png';
+import videoBG from '../../assets/imgs/video-bg.png';
+import smiley from '../../assets/imgs/smiley.png';
 
 // feeling icons:
-import happyIcon from "../../assets/icons/happy.png";
-import sadIcon from "../../assets/icons/sad.png";
-import confusedIcon from "../../assets/icons/happy.png";
-import proudIcon from "../../assets/icons/proud.png";
-import excitedIcon from "../../assets/icons/excited.png";
-import angryIcon from "../../assets/icons/angry.png";
+import happyIcon from '../../assets/icons/happy.png';
+import sadIcon from '../../assets/icons/sad.png';
+import confusedIcon from '../../assets/icons/happy.png';
+import proudIcon from '../../assets/icons/proud.png';
+import excitedIcon from '../../assets/icons/excited.png';
+import angryIcon from '../../assets/icons/angry.png';
 
-import styles from "./CreatePost.module.css";
-import { uploadImg } from "../../services/img-upload-service";
-import { useDispatch, useSelector } from "react-redux";
-import { save, toggleUploadLoader } from "../../store/actions/itemActions";
-import { toggleScreenCover } from "../../store/actions/userActions";
-import { EmojiWindow } from "../other/EmojiWindow";
-import { titleCase } from "../../services/utilService";
+import styles from './CreatePost.module.css';
+import { uploadImg } from '../../services/img-upload-service';
+import { useDispatch, useSelector } from 'react-redux';
+import { save, toggleUploadLoader } from '../../store/actions/itemActions';
+import { toggleScreenCover } from '../../store/actions/userActions';
+import { EmojiWindow } from '../other/EmojiWindow';
+import { titleCase } from '../../services/utilService';
 export const CreatePost = React.memo(() => {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
@@ -36,7 +36,7 @@ export const CreatePost = React.memo(() => {
   const fileInputRef = useRef();
   // const textareaRef = useRef();
 
-  const [postText, setPostText] = useState("");
+  const [postText, setPostText] = useState('');
   const [showFeelingDropdown, setShowFeelingDropdown] = useState(false);
   const [postFeeling, setPostFeeling] = useState();
   const [inputPositionAbsolute, setInputPositionAbsolute] = useState(false);
@@ -49,11 +49,11 @@ export const CreatePost = React.memo(() => {
 
   const discardFiles = (alert = true) => {
     if (alert) {
-      if (!window.confirm("Are you sure you want to discard your changes?"))
+      if (!window.confirm('Are you sure you want to discard your changes?'))
         return;
     }
     setFilesToUpload(null);
-    previewRef.current = "";
+    previewRef.current = '';
     setCheckMediaPreview(false);
     setLoader(false);
   };
@@ -75,22 +75,22 @@ export const CreatePost = React.memo(() => {
   const getFeelingIcon = (feeling) => {
     let feelingIcon;
     switch (feeling) {
-      case "happy":
+      case 'happy':
         feelingIcon = happyIcon;
         break;
-      case "sad":
+      case 'sad':
         feelingIcon = sadIcon;
         break;
-      case "confused":
+      case 'confused':
         feelingIcon = confusedIcon;
         break;
-      case "proud":
+      case 'proud':
         feelingIcon = proudIcon;
         break;
-      case "excited":
+      case 'excited':
         feelingIcon = excitedIcon;
         break;
-      case "angry":
+      case 'angry':
         feelingIcon = angryIcon;
         break;
 
@@ -111,7 +111,7 @@ export const CreatePost = React.memo(() => {
         filePromises = await Promise.all(
           filesToUpload.map(async (file) => {
             const uploadedFileRes = await uploadImg(file, loggedInUser.userId);
-            console.log("uploadedImageRes:", uploadedFileRes);
+            console.log('uploadedImageRes:', uploadedFileRes);
             return uploadedFileRes;
           })
         );
@@ -119,24 +119,24 @@ export const CreatePost = React.memo(() => {
       dispatch(
         save(
           {
-            text: data["post-text"],
+            text: data['post-text'],
             media: filePromises && filePromises[0] ? filePromises : [],
             publisher: {
               id: loggedInUser.userId,
             },
-            feeling: postFeeling ? postFeeling : "",
+            feeling: postFeeling ? postFeeling : '',
           },
-          "post"
+          'post'
         )
       );
       discardFiles(false); //the false is whether to show alert or not
-      setPostText("");
+      setPostText('');
       reset();
     } catch (err) {
-      console.log("uploadImage error:", err);
+      console.log('uploadImage error:', err);
       console.log(err.fatal);
       if (err.fatal) {
-        alert("failed uploading");
+        alert('failed uploading');
       }
       return;
     }
@@ -146,48 +146,48 @@ export const CreatePost = React.memo(() => {
     if (!ev.target.files[0]) return;
     const files = ev.target.files;
     const fileArray = Array.from(files);
-    console.log("fileArray", fileArray);
+    console.log('fileArray', fileArray);
     setFilesToUpload(fileArray);
     setLoader(true);
     fileArray.forEach(async (file) => {
       const fileReader = new FileReader();
-      const isImage = file.type.includes("image");
-      const isVideo = file.type.includes("video");
+      const isImage = file.type.includes('image');
+      const isVideo = file.type.includes('video');
       if (isVideo) {
         setCheckMediaPreview(true);
-        const video = document.createElement("video");
+        const video = document.createElement('video');
         // const source = document.createElement('source');
         //source.src = //uploaded video
         const blob = URL.createObjectURL(file);
         video.src = blob;
         video.id = file.name;
-        video.title = "Click Me To Discard This Item";
-        video.addEventListener("click", () => {
-          const res = window.confirm("Would you like to Delete this file?");
+        video.title = 'Click Me To Discard This Item';
+        video.addEventListener('click', () => {
+          const res = window.confirm('Would you like to Delete this file?');
           if (!res) return;
           discardSingleFile(file);
         });
-        video.addEventListener("loadstart", () => {
-          console.log("blob:", blob);
+        video.addEventListener('loadstart', () => {
+          console.log('blob:', blob);
 
           video.style.backgroundImage = `url("${videoBG}")`;
           previewRef.current.appendChild(video);
         });
       } else if (isImage) {
-        console.log("isVideo:", isVideo);
+        console.log('isVideo:', isVideo);
         setCheckMediaPreview(true);
         fileReader.readAsDataURL(file);
         fileReader.addEventListener(
-          "load",
+          'load',
           async (reader) => {
             let image = new Image();
             image.src = reader.currentTarget.result;
             image.id = file.name;
-            image.title = "Click Me To Remove Me";
+            image.title = 'Click Me To Remove Me';
             // image.setAttribute('data-tip', 'Click Item To Remove It');
             // image.setAttribute('data-place', 'top');
-            image.addEventListener("click", () => {
-              const res = window.confirm("Would you like to Delete this file?");
+            image.addEventListener('click', () => {
+              const res = window.confirm('Would you like to Delete this file?');
               if (!res) return;
               discardSingleFile(file);
             });
@@ -204,27 +204,27 @@ export const CreatePost = React.memo(() => {
     <>
       <section
         className={`${styles.container} ${
-          inputPositionAbsolute ? styles["out"] : ""
+          inputPositionAbsolute ? styles['out'] : ''
         }`}
       >
         {postFeeling && (
           <img
-            className={styles["feeling-preview"]}
+            className={styles['feeling-preview']}
             src={getFeelingIcon(postFeeling)}
-            alt=""
+            alt=''
           />
         )}
 
         {/* <ReactTooltip /> */}
-        <div className={styles["form-container"]}>
-          <div className={styles["image-container"]}>
+        <div className={styles['form-container']}>
+          <div className={styles['image-container']}>
             <img
               src={
                 loggedInUser.profilePicture
                   ? loggedInUser.profilePicture
                   : randomUser
               }
-              alt=""
+              alt=''
             />
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -233,16 +233,16 @@ export const CreatePost = React.memo(() => {
                 loggedInUser.name.first
               )}?`}
               className={styles.input}
-              autoComplete="off"
+              autoComplete='off'
               onClick={() => setInputPositionAbsolute(true)}
-              {...register("post-text")}
+              {...register('post-text')}
               onInput={(ev) => setPostText(ev.target.value)}
               value={postText}
             />
             <img
-              className={styles["emoji-window-toggler"]}
+              className={styles['emoji-window-toggler']}
               src={smiley}
-              alt=""
+              alt=''
               onClick={() => setShowEmojiWindow(!showEmojiWindow)}
             />
             {showEmojiWindow && (
@@ -253,7 +253,7 @@ export const CreatePost = React.memo(() => {
             )}
             {!showLoader && <button disabled={!postText.length}>POST</button>}
             {showLoader && (
-              <div className={styles["lds-roller"]}>
+              <div className={styles['lds-roller']}>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -270,40 +270,40 @@ export const CreatePost = React.memo(() => {
           className={styles.actions}
           onMouseLeave={() => setShowFeelingDropdown(false)}
         >
-          <div className={styles["action-container"]}>
-            <label htmlFor="add-img">
-              <img src={pictureIcon} alt="" className={styles.icon} />
+          <div className={styles['action-container']}>
+            <label htmlFor='add-img'>
+              <img src={pictureIcon} alt='' className={styles.icon} />
               Add Picture
             </label>
             <input
-              className={styles["upload-media-input"]}
-              type="file"
-              accept="image/*"
-              id="add-img"
+              className={styles['upload-media-input']}
+              type='file'
+              accept='image/*'
+              id='add-img'
               onChange={imageUploadHandler}
               multiple
             />
           </div>
-          <div className={styles["action-container"]}>
-            <label htmlFor="add-vid">
-              <img src={videoIcon} alt="" className={styles.icon} />
+          <div className={styles['action-container']}>
+            <label htmlFor='add-vid'>
+              <img src={videoIcon} alt='' className={styles.icon} />
               Add Video
             </label>
             <input
-              className={styles["upload-media-input"]}
-              type="file"
-              accept="video/*"
-              id="add-vid"
+              className={styles['upload-media-input']}
+              type='file'
+              accept='video/*'
+              id='add-vid'
               onChange={imageUploadHandler}
               multiple
               ref={fileInputRef}
             />
           </div>
           <div
-            className={styles["action-container"]}
+            className={styles['action-container']}
             onClick={() => setShowFeelingDropdown(!showFeelingDropdown)}
           >
-            <img src={feelingIcon} alt="" className={styles.icon} />
+            <img src={feelingIcon} alt='' className={styles.icon} />
             Add Feeling
             {showFeelingDropdown && (
               <FeelingDropdown setPostFeeling={setPostFeeling} />
@@ -311,7 +311,7 @@ export const CreatePost = React.memo(() => {
           </div>
         </div>
         {loader && (
-          <div className={styles["lds-ellipsis"]}>
+          <div className={styles['lds-ellipsis']}>
             <div></div>
             <div></div>
             <div></div>
@@ -322,7 +322,7 @@ export const CreatePost = React.memo(() => {
           <>
             <button
               onClick={discardFiles}
-              className={styles["discard-files-btn"]}
+              className={styles['discard-files-btn']}
             >
               Remove All Files
             </button>

@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import styles from "./SinglePost.module.css";
+import React, { useState } from 'react';
+import styles from './SinglePost.module.css';
 
-import { PostMedia } from "./PostMedia";
-import { PostActions } from "./PostActions";
-import { EngagementInfo } from "./EngagementInfo";
-import { Comments } from "./Comments";
-import { PostOptions } from "./PostOptions";
-import randomUser from "../../assets/imgs/profile-color.png";
-import optionsIcon from "../../assets/imgs/option.png";
-import { useSelector } from "react-redux";
+import { PostMedia } from './PostMedia';
+import { PostActions } from './PostActions';
+import { EngagementInfo } from './EngagementInfo';
+import { Comments } from './Comments';
+import { PostOptions } from './PostOptions';
+import randomUser from '../../assets/imgs/profile-color.png';
+import optionsIcon from '../../assets/imgs/option.png';
+import { useSelector } from 'react-redux';
 // import { UpdateModal } from '../UpdateModal';
 
 // feeling icons:
-import happyIcon from "../../assets/icons/happy.png";
-import sadIcon from "../../assets/icons/sad.png";
-import confusedIcon from "../../assets/icons/happy.png";
-import proudIcon from "../../assets/icons/proud.png";
-import excitedIcon from "../../assets/icons/excited.png";
-import angryIcon from "../../assets/icons/angry.png";
-import { useNavigate } from "react-router";
-import { getTitledName, titleCase } from "../../services/utilService";
+import happyIcon from '../../assets/icons/happy.png';
+import sadIcon from '../../assets/icons/sad.png';
+import confusedIcon from '../../assets/icons/happy.png';
+import proudIcon from '../../assets/icons/proud.png';
+import excitedIcon from '../../assets/icons/excited.png';
+import angryIcon from '../../assets/icons/angry.png';
+import { useNavigate } from 'react-router';
+import { getTitledName, titleCase } from '../../services/utilService';
 
 export const SinglePost = ({ post }) => {
   // console.log('singlePost from mongo:', post);
@@ -43,27 +43,27 @@ export const SinglePost = ({ post }) => {
   const isLongText = post.text && post.text.length < 180;
 
   const getCorrectTextLength = () => {
-    return fullText || isLongText ? post.text : post.text.slice(0, 180) + "...";
+    return fullText || isLongText ? post.text : post.text.slice(0, 180) + '...';
   };
   const getFeelingIcon = (feeling) => {
     let feelingIcon;
     switch (feeling) {
-      case "happy":
+      case 'happy':
         feelingIcon = happyIcon;
         break;
-      case "sad":
+      case 'sad':
         feelingIcon = sadIcon;
         break;
-      case "confused":
+      case 'confused':
         feelingIcon = confusedIcon;
         break;
-      case "proud":
+      case 'proud':
         feelingIcon = proudIcon;
         break;
-      case "excited":
+      case 'excited':
         feelingIcon = excitedIcon;
         break;
-      case "angry":
+      case 'angry':
         feelingIcon = angryIcon;
         break;
 
@@ -74,7 +74,7 @@ export const SinglePost = ({ post }) => {
   };
 
   const navigateToProfile = (id) => {
-    if (id === loggedInUser.userId) navigate("/my-profile");
+    if (id === loggedInUser.userId) navigate('/my-profile');
     else navigate(`/profiles/${id}`);
   };
 
@@ -87,7 +87,7 @@ export const SinglePost = ({ post }) => {
         <img
           className={styles.options}
           src={optionsIcon}
-          alt=""
+          alt=''
           onClick={() => setShowOptionDropdown(!showOptionDropdown)}
         />
       )}
@@ -99,44 +99,44 @@ export const SinglePost = ({ post }) => {
           publisherId={post.publisher.id}
         />
       )}
-      <div className={styles["post-info"]}>
-        <div className={styles["post-user-image-container"]}>
+      <div className={styles['post-info']}>
+        <div className={styles['post-user-image-container']}>
           <img
             src={
               post.publisher.profilePicture
                 ? post.publisher.profilePicture
                 : randomUser
             }
-            alt=""
+            alt=''
           />
         </div>
-        <span className={styles["post-name-date-container"]}>
+        <span className={styles['post-name-date-container']}>
           <span onClick={() => navigateToProfile(post.publisher.id)}>
             {getTitledName(post.publisher.name)}
           </span>
           <span>
-            {new Date(post.date).toLocaleDateString("he-IL") +
-              ", " +
-              new Date(post.date).toLocaleTimeString("en-GB", {
-                hour: "2-digit",
-                minute: "2-digit",
+            {new Date(post.date).toLocaleDateString('he-IL') +
+              ', ' +
+              new Date(post.date).toLocaleTimeString('en-GB', {
+                hour: '2-digit',
+                minute: '2-digit',
               })}
           </span>
         </span>
       </div>
-      <div className={styles["content-container"]}>
+      <div className={styles['content-container']}>
         {post.feeling && (
           <span className={styles.feeling}>
             {`${titleCase(loggedInUser.name.first)} is Feeling ${post.feeling}`}
-            <img src={getFeelingIcon(post.feeling)} alt="" />
+            <img src={getFeelingIcon(post.feeling)} alt='' />
           </span>
         )}
         <p>
           {getCorrectTextLength()}
           {!isLongText && (
-            <span className={styles["text-length"]}>
+            <span className={styles['text-length']}>
               <button onClick={() => setFullText(!fullText)}>
-                Read {fullText ? "Less" : "More"}
+                Read {fullText ? 'Less' : 'More'}
               </button>
             </span>
           )}

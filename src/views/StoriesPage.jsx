@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./StoriesPage.module.css";
+import React from 'react';
+import styles from './StoriesPage.module.css';
 export const StoriesPage = () => {
   return (
     <div className={styles.container}>

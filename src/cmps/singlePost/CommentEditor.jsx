@@ -21,14 +21,14 @@ export const CommentEditor = ({ prevText, setStartEditing, comment }) => {
       <img
         className={styles.cancel}
         src={cancel}
-        alt=""
+        alt=''
         onClick={() => setStartEditing(false)}
       />
       <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
+        name=''
+        id=''
+        cols='30'
+        rows='10'
         defaultValue={prevText}
         {...register('new-text')}
         autoFocus
@@ -40,7 +40,7 @@ export const CommentEditor = ({ prevText, setStartEditing, comment }) => {
         }
       ></textarea>
       <button type={'submit'}>
-        <img src={send} alt="" />
+        <img src={send} alt='' />
       </button>
     </form>
   );

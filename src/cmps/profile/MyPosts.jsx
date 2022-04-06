@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { SinglePost } from "../singlePost/SinglePost";
-import { UpdateModal } from "../singlePost/UpdateModal";
-import { queryMyPosts } from "../../store/actions/itemActions";
-import styles from "./MyPosts.module.css";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { SinglePost } from '../singlePost/SinglePost';
+import { UpdateModal } from '../singlePost/UpdateModal';
+import { queryMyPosts } from '../../store/actions/itemActions';
+import styles from './MyPosts.module.css';
 export const MyPosts = ({ userId }) => {
   const dispatch = useDispatch();
 
@@ -13,7 +13,8 @@ export const MyPosts = ({ userId }) => {
   };
   useEffect(() => {
     getMyPosts();
-  }, []);
+    //when user changes, fetch posts again
+  }, [userId]);
 
   if (!myPosts) return <div>No posts yet!</div>;
   return (

@@ -1,23 +1,23 @@
-import React, { Fragment, useState } from "react";
-import styles from "./PostActions.module.css";
+import React, { Fragment, useState } from 'react';
+import styles from './PostActions.module.css';
 
-import likeIcon from "../../assets/icons/like.png";
-import likeColorIcon from "../../assets/icons/like-color.png";
-import happyIcon from "../../assets/icons/happy.png";
-import sadIcon from "../../assets/icons/sad.png";
-import loveIcon from "../../assets/icons/love.png";
-import angryIcon from "../../assets/icons/angry.png";
+import likeIcon from '../../assets/icons/like.png';
+import likeColorIcon from '../../assets/icons/like-color.png';
+import happyIcon from '../../assets/icons/happy.png';
+import sadIcon from '../../assets/icons/sad.png';
+import loveIcon from '../../assets/icons/love.png';
+import angryIcon from '../../assets/icons/angry.png';
 
-import shareIcon from "../../assets/icons/share.png";
-import commentIcon from "../../assets/icons/comment.png";
-import closeCommentIcon from "../../assets/imgs/close-comment.png";
-import { ReactionMenu } from "./ReactionMenu";
-import { useDispatch } from "react-redux";
-import { save } from "../../store/actions/itemActions";
+import shareIcon from '../../assets/icons/share.png';
+import commentIcon from '../../assets/icons/comment.png';
+import closeCommentIcon from '../../assets/imgs/close-comment.png';
+import { ReactionMenu } from './ReactionMenu';
+import { useDispatch } from 'react-redux';
+import { save } from '../../store/actions/itemActions';
 import {
   removeNotification,
   sendNotification,
-} from "../../store/actions/notificationActions";
+} from '../../store/actions/notificationActions';
 export const PostActions = ({
   setShowComments,
   showComments,
@@ -52,20 +52,20 @@ export const PostActions = ({
         ...res,
         to: post.publisher.id,
         from: userId,
-        item_type: "post",
-        interaction: "reaction",
+        item_type: 'post',
+        interaction: 'reaction',
       };
-      console.log("res:", notification);
+      console.log('res:', notification);
       if (notification.to === notification.from) {
-        console.log("user doesnt need to notify himself!");
+        console.log('user doesnt need to notify himself!');
         return;
       }
       dispatch(sendNotification(notification));
     };
-    console.log("reaction type:", type);
+    console.log('reaction type:', type);
     const existInSameReactionType = checkExist(post.engagement.reactions, type);
     if (existInSameReactionType) {
-      console.log("exists in same reaction");
+      console.log('exists in same reaction');
       //if exists in same type, splice it
       const idx = post.engagement.reactions[type].findIndex(
         (id) => id === userId
@@ -83,13 +83,13 @@ export const PostActions = ({
         if (object[reactionType].includes(userId)) {
           correctReactionType = reactionType;
         } else {
-          console.log("not in", reactionType);
+          console.log('not in', reactionType);
         }
       }
       if (correctReactionType) {
         //if it does, splice and change it!
         checkSuccess = () => {};
-        console.log("correctReactionType:", correctReactionType);
+        console.log('correctReactionType:', correctReactionType);
         const idx = post.engagement.reactions[type].findIndex(
           (id) => id === userId
         );
@@ -97,12 +97,12 @@ export const PostActions = ({
         post.engagement.reactions[type].push(userId);
       } else {
         //if it doesnt just add it
-        console.log("just adding");
+        console.log('just adding');
         post.engagement.reactions[type].push(userId);
       }
     }
     // console.log("post after reaction:", post);
-    dispatch(save(post, "post", checkSuccess, false));
+    dispatch(save(post, 'post', checkSuccess, false));
   };
 
   const checkExist = (reactions, type) => {
@@ -112,7 +112,7 @@ export const PostActions = ({
     setShowComments(true);
   };
   const sharePost = () => {
-    console.log("i want to share this!");
+    console.log('i want to share this!');
   };
 
   const getReactionType = () => {
@@ -126,19 +126,19 @@ export const PostActions = ({
   const getReactionIcon = () => {
     let reaction = getReactionType();
     switch (reaction) {
-      case "likes":
+      case 'likes':
         return likeColorIcon;
 
-      case "angry":
+      case 'angry':
         return angryIcon;
 
-      case "sad":
+      case 'sad':
         return sadIcon;
 
-      case "love":
+      case 'love':
         return loveIcon;
 
-      case "happy":
+      case 'happy':
         return happyIcon;
 
       default:
@@ -155,16 +155,16 @@ export const PostActions = ({
           {isHovered && <ReactionMenu addReaction={addReaction} />}
           <img
             src={getReactionIcon()}
-            alt=""
-            onClick={() => addReaction("likes")}
+            alt=''
+            onClick={() => addReaction('likes')}
           />
           {/* Like */}
         </button>
         <button onClick={() => onAddComment()}>
-          <img src={!showComments ? commentIcon : closeCommentIcon} alt="" />
+          <img src={!showComments ? commentIcon : closeCommentIcon} alt='' />
         </button>
         <button onClick={() => sharePost()}>
-          <img src={shareIcon} alt="" />
+          <img src={shareIcon} alt='' />
         </button>
       </div>
     </Fragment>

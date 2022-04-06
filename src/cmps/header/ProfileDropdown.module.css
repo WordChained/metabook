@@ -43,7 +43,18 @@
   align-items: center;
   justify-content: center;
 }
-.container ul li:hover {
+/* till i use actual settings */
+/*=============================*/
+.container ul li.disabled {
+  color: grey;
+}
+.container ul li.disabled img {
+  opacity: 0.2;
+  cursor: unset;
+}
+/*=============================*/
+
+.container ul li:not(.disabled):hover {
   background-color: rgb(87, 87, 87);
   cursor: pointer;
 }

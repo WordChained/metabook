@@ -47,11 +47,11 @@ export const EngagementInfo = ({ data, setShowComments, showComments }) => {
   return (
     <div className={styles.container}>
       <div className={styles['reaction-preview']}>
-        {showHappy && <img src={happyIcon} alt="" />}
-        {showLove && <img src={loveIcon} alt="" />}
-        {showSad && <img src={sadIcon} alt="" />}
-        {showAngry && <img src={angryIcon} alt="" />}
-        {showLikes && <img src={likeIcon} alt="" />}
+        {showHappy && <img src={happyIcon} alt='' />}
+        {showLove && <img src={loveIcon} alt='' />}
+        {showSad && <img src={sadIcon} alt='' />}
+        {showAngry && <img src={angryIcon} alt='' />}
+        {showLikes && <img src={likeIcon} alt='' />}
         {numberOfReactions > 0 && numberOfReactions}
       </div>
 

@@ -1,7 +1,7 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
-import { getUsers } from "../../store/actions/userActions";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { getUsers } from '../../store/actions/userActions';
 
 export const UsersSearchForm = React.memo(() => {
   const dispatch = useDispatch();
@@ -18,11 +18,11 @@ export const UsersSearchForm = React.memo(() => {
   return (
     <form onSubmit={(ev) => ev.preventDefault()}>
       <input
-        id="filter"
+        id='filter'
         onChange={(ev) => handleSubmit(onSubmit(ev))}
-        type="text"
-        placeholder="Search for new friends..."
-        autoComplete="off"
+        type='text'
+        placeholder='Search for new friends...'
+        autoComplete='off'
       />
     </form>
   );

@@ -1,18 +1,18 @@
-import React, { useRef, useState } from "react";
-import styles from "./CommentForm.module.css";
+import React, { useRef, useState } from 'react';
+import styles from './CommentForm.module.css';
 
-import randomUser from "../../assets/imgs/profile-color.png";
+import randomUser from '../../assets/imgs/profile-color.png';
 
-import smiley from "../../assets/imgs/smiley.png";
-import thinking from "../../assets/imgs/thinking.png";
-import send from "../../assets/imgs/send.png";
-import { useSelector, useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
+import smiley from '../../assets/imgs/smiley.png';
+import thinking from '../../assets/imgs/thinking.png';
+import send from '../../assets/imgs/send.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 
-import { EmojiWindow } from "../other/EmojiWindow";
+import { EmojiWindow } from '../other/EmojiWindow';
 
-import { save } from "../../store/actions/itemActions";
-import { sendNotification } from "../../store/actions/notificationActions";
+import { save } from '../../store/actions/itemActions';
+import { sendNotification } from '../../store/actions/notificationActions';
 export const CommentForm = ({ postId, parentPublisherId }) => {
   const dispatch = useDispatch();
   const {
@@ -21,8 +21,8 @@ export const CommentForm = ({ postId, parentPublisherId }) => {
     // reset,
   } = useForm();
 
-  const [formTextLength, setFormTextLength] = useState("");
-  const [commentText, setCommentText] = useState("");
+  const [formTextLength, setFormTextLength] = useState('');
+  const [commentText, setCommentText] = useState('');
   const [showEmojiWindow, setShowEmojiWindow] = useState(false);
 
   const { loggedInUser } = useSelector((state) => state.userModule);
@@ -43,7 +43,7 @@ export const CommentForm = ({ postId, parentPublisherId }) => {
     //   ...res,
     // };
     if (res.to === res.from) {
-      console.log("user doesnt need to notify himself!");
+      console.log('user doesnt need to notify himself!');
       return;
     }
     dispatch(sendNotification(res));
@@ -61,9 +61,9 @@ export const CommentForm = ({ postId, parentPublisherId }) => {
       text: commentText,
       media: [],
     };
-    dispatch(save(comment, "comment", checkSuccess));
+    dispatch(save(comment, 'comment', checkSuccess));
     // reset();
-    setCommentText("");
+    setCommentText('');
     setShowEmojiWindow(false);
   };
   const addEmoji = (emoji) => {
@@ -71,34 +71,34 @@ export const CommentForm = ({ postId, parentPublisherId }) => {
   };
   return (
     <>
-      <div className={styles["comment-form"]}>
-        <div className={styles["image-container"]}>
-          <img src={checkUserProfilePicture} alt="" />
+      <div className={styles['comment-form']}>
+        <div className={styles['image-container']}>
+          <img src={checkUserProfilePicture} alt='' />
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea
             // {...register('comment-text')}
             onInput={getCommentText}
-            type="text"
-            placeholder="Post a Comment..."
+            type='text'
+            placeholder='Post a Comment...'
             value={commentText}
           />
           <div className={styles.actions}>
             {/* <img src={checkUserProfilePicture} alt="" /> */}
             <img
               src={!showEmojiWindow ? smiley : thinking}
-              alt=""
+              alt=''
               onClick={() => setShowEmojiWindow(!showEmojiWindow)}
             />
 
             {/* <img src={gif} alt="" /> */}
           </div>
           <button disabled={formTextLength < 1}>
-            <img src={send} alt="" />
+            <img src={send} alt='' />
           </button>
         </form>
       </div>
-      <div className={styles["emoji-window-container"]}>
+      <div className={styles['emoji-window-container']}>
         {showEmojiWindow && <EmojiWindow addEmoji={addEmoji} />}
       </div>
     </>

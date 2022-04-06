@@ -1,13 +1,13 @@
-import React, { Fragment, useRef, useState, useEffect } from "react";
-import styles from "./Comment.module.css";
-import randomImage from "../../assets/imgs/profile-color.png";
+import React, { Fragment, useRef, useState, useEffect } from 'react';
+import styles from './Comment.module.css';
+import randomImage from '../../assets/imgs/profile-color.png';
 
-import { CommentActions } from "./CommentActions";
-import { CommentOptions } from "./CommentOptions";
-import { CommentEditor } from "./CommentEditor";
-import option from "../../assets/imgs/option.png";
-import { useSelector } from "react-redux";
-import { getTitledName } from "../../services/utilService";
+import { CommentActions } from './CommentActions';
+import { CommentOptions } from './CommentOptions';
+import { CommentEditor } from './CommentEditor';
+import option from '../../assets/imgs/option.png';
+import { useSelector } from 'react-redux';
+import { getTitledName } from '../../services/utilService';
 
 export const Comment = ({ comment }) => {
   const { loggedInUser } = useSelector((state) => state.userModule);
@@ -21,7 +21,7 @@ export const Comment = ({ comment }) => {
   const commentRef = useRef();
   useEffect(() => {
     if (commentRef.current.offsetHeight > 200) {
-      console.log("high comment:", comment.text);
+      console.log('high comment:', comment.text);
       setLimitHeight(true);
       setHighComment(true);
     }
@@ -37,14 +37,14 @@ export const Comment = ({ comment }) => {
         onMouseLeave={() => setShowCommentOptions(false)}
         ref={commentRef}
       >
-        <div className={styles["comment-user-image"]}>
+        <div className={styles['comment-user-image']}>
           <img
             src={
               comment.publisher.profilePicture
                 ? comment.publisher.profilePicture
                 : randomImage
             }
-            alt=""
+            alt=''
           />
         </div>
         <div className={styles.content}>
@@ -54,7 +54,7 @@ export const Comment = ({ comment }) => {
                 <img
                   className={styles.options}
                   src={option}
-                  alt=""
+                  alt=''
                   onClick={() => setShowCommentOptions(!showCommentOptions)}
                 />
               )}
@@ -72,7 +72,7 @@ export const Comment = ({ comment }) => {
           {!startEditing && (
             <>
               <p
-                className={`${styles.text} ${limitHeight ? styles.limit : ""}`}
+                className={`${styles.text} ${limitHeight ? styles.limit : ''}`}
               >
                 {comment.text.length > 150 && !showFullText
                   ? comment.text.slice(0, 150)
@@ -80,7 +80,7 @@ export const Comment = ({ comment }) => {
               </p>
               {(comment.text.length > 150 || highComment) && (
                 <span onClick={toggleShow}>
-                  {showFullText || !limitHeight ? " ...Less" : " ...More"}
+                  {showFullText || !limitHeight ? ' ...Less' : ' ...More'}
                 </span>
               )}
             </>
@@ -94,6 +94,8 @@ export const Comment = ({ comment }) => {
           )}
         </div>
       </section>
+      {/* i commented the actions till i implement them */}
+      {/* so this cmp only gets the formatted time since post */}
       <CommentActions commentDate={comment.date} />
     </Fragment>
   );

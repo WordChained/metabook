@@ -1,16 +1,16 @@
-import React from "react";
-import profileIcon from "../../assets/imgs/profile.png";
-import checkMark from "../../assets/imgs/check-mark.png";
-import denyIcon from "../../assets/imgs/no.png";
+import React from 'react';
+import profileIcon from '../../assets/imgs/profile.png';
+import checkMark from '../../assets/imgs/check-mark.png';
+import denyIcon from '../../assets/imgs/no.png';
 
-import { getTitledName } from "../../services/utilService";
-import styles from "./NotificationItem.module.css";
-import { useDispatch } from "react-redux";
-import { addFriend, removeFriend } from "../../store/actions/friendsActions";
+import { getTitledName } from '../../services/utilService';
+import styles from './NotificationItem.module.css';
+import { useDispatch } from 'react-redux';
+import { addFriend, removeFriend } from '../../store/actions/friendsActions';
 import {
   removeNotification,
   sendNotification,
-} from "../../store/actions/notificationActions";
+} from '../../store/actions/notificationActions';
 export const NotificationItem = ({ notification }) => {
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ export const NotificationItem = ({ notification }) => {
     notification.date - new Date(notification.date).getTimezoneOffset() * 60000
   ).toISOString(); //
   const prettyDate = (time) => {
-    let date = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " "));
+    let date = new Date((time || '').replace(/-/g, '/').replace(/[TZ]/g, ' '));
     let diff = (Date.now() - date.getTime()) / 1000;
     let day_diff = Math.floor(diff / 86400);
     let month_diff = Math.floor(diff / 2629800);
@@ -32,22 +32,22 @@ export const NotificationItem = ({ notification }) => {
       }
       if (num > 12) {
         const monthsLeft = month_diff + 1 - num + 12; //what part of the year(12m) is left
-        return years + "y" + (monthsLeft ? monthsLeft + "m" : "");
+        return years + 'y' + (monthsLeft ? monthsLeft + 'm' : '');
       }
-      return month_diff + "mths";
+      return month_diff + 'mths';
     }
     if (month_diff && month_diff > 0) {
     }
     return (
       (day_diff === 0 &&
-        ((diff < 60 && "just now") ||
-          (diff < 120 && "1m") ||
-          (diff < 3600 && Math.floor(diff / 60) + " m") ||
-          (diff < 7200 && "1m") ||
-          (diff < 86400 && Math.floor(diff / 3600) + " h"))) ||
-      (day_diff === 1 && "1d") ||
-      (day_diff < 7 && day_diff + " d") ||
-      (day_diff < 31 && Math.ceil(day_diff / 7) + " w")
+        ((diff < 60 && 'just now') ||
+          (diff < 120 && '1m') ||
+          (diff < 3600 && Math.floor(diff / 60) + ' m') ||
+          (diff < 7200 && '1m') ||
+          (diff < 86400 && Math.floor(diff / 3600) + ' h'))) ||
+      (day_diff === 1 && '1d') ||
+      (day_diff < 7 && day_diff + ' d') ||
+      (day_diff < 31 && Math.ceil(day_diff / 7) + ' w')
     );
   };
 
@@ -56,17 +56,17 @@ export const NotificationItem = ({ notification }) => {
   //   };
 
   const getShortText = (text) => {
-    if (text.length > 50) return text.slice(0, 50) + "...";
+    if (text.length > 50) return text.slice(0, 50) + '...';
     else return text;
   };
   const getDescription = (interaction) => {
     switch (interaction) {
-      case "comment":
-        return "Has commented on your";
-      case "reaction":
-        return "Has reacted to your";
-      case "friend_req":
-        return "Has sent you a";
+      case 'comment':
+        return 'Has commented on your';
+      case 'reaction':
+        return 'Has reacted to your';
+      case 'friend_req':
+        return 'Has sent you a';
       default:
         break;
     }
@@ -88,7 +88,7 @@ export const NotificationItem = ({ notification }) => {
       addFriend(
         notification.user_id,
         notification.sender_id,
-        "approve",
+        'approve',
         () => {}
       )
     );
@@ -97,8 +97,8 @@ export const NotificationItem = ({ notification }) => {
 
   return (
     <li className={`${styles.item} ${styles[notification.status]}`}>
-      <div className={styles["image-conatiner"]}>
-        <img src={profileIcon} alt="" />
+      <div className={styles['image-conatiner']}>
+        <img src={profileIcon} alt='' />
       </div>
       <div className={styles.content}>
         <div>
@@ -113,8 +113,8 @@ export const NotificationItem = ({ notification }) => {
           )}
           {!notification.content && (
             <span className={styles.actions}>
-              <img onClick={onApproveFriendRequest} src={checkMark} alt="" />{" "}
-              <img onClick={onDenyFriendRequest} src={denyIcon} alt="" />
+              <img onClick={onApproveFriendRequest} src={checkMark} alt='' />{' '}
+              <img onClick={onDenyFriendRequest} src={denyIcon} alt='' />
             </span>
           )}
         </div>

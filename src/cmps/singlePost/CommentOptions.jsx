@@ -22,10 +22,10 @@ export const CommentOptions = ({ comment, userId, setStartEditing }) => {
   return (
     <ul className={styles.window}>
       <li>
-        <img src={trash} alt="" onClick={deleteComment} />
+        <img src={trash} alt='' onClick={deleteComment} />
       </li>
       <li>
-        <img src={edit} alt="" onClick={startEditing} />
+        <img src={edit} alt='' onClick={startEditing} />
       </li>
     </ul>
   );

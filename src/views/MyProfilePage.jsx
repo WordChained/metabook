@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import styles from "./MyprofilePage.module.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import styles from './MyprofilePage.module.css';
 
-import { CreatePost } from "../cmps/createPost/CreatePost";
-import { MyPosts } from "../cmps/profile/MyPosts";
-import { MyImages } from "../cmps/profile/MyImages";
-import { FriendsList } from "../cmps/profile/FriendsList";
+import { CreatePost } from '../cmps/createPost/CreatePost';
+import { MyPosts } from '../cmps/profile/MyPosts';
+import { MyImages } from '../cmps/profile/MyImages';
+import { FriendsList } from '../cmps/profile/FriendsList';
 
-import cameraIcon from "../assets/imgs/camera.png";
-import locationIcon from "../assets/imgs/location-pin.png";
-import randomUser from "../assets/imgs/user-512.png";
-import { getTitledName } from "../services/utilService";
-import { SingleMediaGallery } from "../cmps/other/SingleMediaGallery";
-import { ProfilePictureEditPreview } from "../cmps/profile/ProfilePictureEditPreview";
-import { useRef } from "react";
-import { CoverPhotoEditPreview } from "../cmps/profile/CoverPhotoEditPreview";
+import cameraIcon from '../assets/imgs/camera.png';
+import locationIcon from '../assets/imgs/location-pin.png';
+import randomUser from '../assets/imgs/user-512.png';
+import { getTitledName } from '../services/utilService';
+import { SingleMediaGallery } from '../cmps/other/SingleMediaGallery';
+import { ProfilePictureEditPreview } from '../cmps/profile/ProfilePictureEditPreview';
+import { useRef } from 'react';
+import { CoverPhotoEditPreview } from '../cmps/profile/CoverPhotoEditPreview';
+import { UpdateUserDetailsModal } from '../cmps/profile/UpdateUserDetailsModal';
 
 export const MyProfilePage = () => {
   const { loggedInUser } = useSelector((state) => state.userModule);
@@ -22,19 +23,24 @@ export const MyProfilePage = () => {
   const [newProfilePicture, setNewProfilePicture] = useState(null);
   const [newCoverPhoto, setNewCoverPhoto] = useState(null);
   const [fileToUpload, setFileToUpload] = useState(null);
+  const [showUserDetailsUpdateModal, setShowUserDetailsUpdateModal] =
+    useState(false);
 
   const profilePictureRef = useRef();
   const coverPhotoRef = useRef();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const cancelProfilePictureEdit = () => {
     setNewProfilePicture(null);
     setFileToUpload(null);
-    profilePictureRef.current.value = "";
+    profilePictureRef.current.value = '';
   };
   const cancelCoverPhotoEdit = () => {
     setNewCoverPhoto(null);
     setFileToUpload(null);
-    coverPhotoRef.current.value = "";
+    coverPhotoRef.current.value = '';
   };
 
   const onEditUserMedia = async (ev, typeOfMedia) => {
@@ -45,10 +51,10 @@ export const MyProfilePage = () => {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.addEventListener(
-      "load",
+      'load',
       async (reader) => {
         // console.log(reader.currentTarget.result);
-        typeOfMedia === "coverPhoto"
+        typeOfMedia === 'coverPhoto'
           ? setNewCoverPhoto(reader.currentTarget.result)
           : setNewProfilePicture(reader.currentTarget.result);
       },
@@ -58,23 +64,32 @@ export const MyProfilePage = () => {
 
   return (
     <section
-      className={`${styles["profile-page"]} ${
-        singleMedia ? styles["no-scroll"] : ""
+      className={`${styles['profile-page']} ${
+        singleMedia || showUserDetailsUpdateModal ? styles['no-scroll'] : ''
       }`}
     >
+      {showUserDetailsUpdateModal && (
+        <UpdateUserDetailsModal
+          show={setShowUserDetailsUpdateModal}
+          address={loggedInUser.address.full}
+          education={loggedInUser.edication}
+          career={loggedInUser.career}
+          userId={loggedInUser.userId}
+        />
+      )}
       {singleMedia && (
         <SingleMediaGallery
           mediaItem={singleMedia}
           close={() => setSingleMedia(null)}
         />
       )}
-      <div className={styles["upper-part-container"]}>
-        <div className={styles["hero-container"]}>
+      <div className={styles['upper-part-container']}>
+        <div className={styles['hero-container']}>
           {loggedInUser.coverPhoto && (
             <img
               className={styles.hero}
               src={loggedInUser.coverPhoto}
-              alt=""
+              alt=''
               onClick={() => setSingleMedia(loggedInUser.coverPhoto)}
             />
           )}
@@ -87,43 +102,43 @@ export const MyProfilePage = () => {
             />
           )}
           <label
-            className={`${styles["file-label"]} ${
-              newCoverPhoto ? styles.hide : ""
+            className={`${styles['file-label']} ${
+              newCoverPhoto ? styles.hide : ''
             }`}
           >
-            <img src={cameraIcon} alt="" />
+            <img src={cameraIcon} alt='' />
             <span>
               {loggedInUser.coverPhoto
-                ? "Edit cover photo"
-                : "Add a cover photo"}
+                ? 'Edit cover photo'
+                : 'Add a cover photo'}
             </span>
             <input
-              type="file"
-              onChange={(ev) => onEditUserMedia(ev, "coverPhoto")}
+              type='file'
+              onChange={(ev) => onEditUserMedia(ev, 'coverPhoto')}
               ref={coverPhotoRef}
               onClick={cancelCoverPhotoEdit}
             />
           </label>
         </div>
-        <div className={styles["profile-picture-conatiner"]}>
+        <div className={styles['profile-picture-conatiner']}>
           <img
-            className={styles["profile-picture"]}
+            className={styles['profile-picture']}
             src={
               loggedInUser.profilePicture
                 ? loggedInUser.profilePicture
                 : randomUser
             }
-            alt=""
+            alt=''
             onClick={() => setSingleMedia(loggedInUser.profilePicture)}
           />
-          <span className={styles["edit-container"]}>
-            <label className={styles["file-label"]}>
-              <img src={cameraIcon} alt="" />
+          <span className={styles['edit-container']}>
+            <label className={styles['file-label']}>
+              <img src={cameraIcon} alt='' />
               <span>
                 <input
-                  type="file"
+                  type='file'
                   ref={profilePictureRef}
-                  onChange={(ev) => onEditUserMedia(ev, "profilePicture")}
+                  onChange={(ev) => onEditUserMedia(ev, 'profilePicture')}
                   onClick={cancelCoverPhotoEdit}
                 />
               </span>
@@ -138,28 +153,33 @@ export const MyProfilePage = () => {
             userId={loggedInUser.userId}
           />
         )}
-        <div className={styles["name-container"]}>
+        <div className={styles['name-container']}>
           <h1>{getTitledName(loggedInUser.name)}</h1>
         </div>
       </div>
-      <div className={styles["lower-part-container"]}>
+      <div className={styles['lower-part-container']}>
         <div className={styles.left}>
           <div className={styles.intro}>
             <h2>Intro</h2>
             <div className={styles.location}>
-              <img src={locationIcon} alt="" /> Lives in{" "}
+              <img src={locationIcon} alt='' /> Lives in{' '}
               {loggedInUser.address.full}
             </div>
-            <button>Edit address</button>
+            <button onClick={() => setShowUserDetailsUpdateModal(true)}>
+              Edit details
+            </button>
           </div>
-          <div className={styles["images-container"]}>
+          <div className={styles['images-container']}>
             <h2>Images</h2>
             <MyImages userId={loggedInUser.userId} user={loggedInUser} />
             {/* insert logic for all my images. */}
           </div>
-          <div className={styles["friends-container"]}>
+          <div className={styles['friends-container']}>
             <h2>Friends</h2>
-            <FriendsList userId={loggedInUser.userId} />
+            <FriendsList
+              userId={loggedInUser.userId}
+              loggedInUser={loggedInUser}
+            />
           </div>
         </div>
         <div className={styles.right}>

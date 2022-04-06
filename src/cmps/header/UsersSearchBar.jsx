@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./UsersSearchBar.module.css";
-import searchIcon from "../../assets/imgs/search.png";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { getUsers } from "../../store/actions/userActions";
-import { useNavigate } from "react-router";
+import React, { useState } from 'react';
+import styles from './UsersSearchBar.module.css';
+import searchIcon from '../../assets/imgs/search.png';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { getUsers } from '../../store/actions/userActions';
+import { useNavigate } from 'react-router';
 export const UsersSearchBar = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
@@ -14,14 +14,14 @@ export const UsersSearchBar = () => {
   const onSubmit = (data) => {
     if (showForm) {
       //this is where i send the info
-      if (data["filter"].length) {
-        dispatch(getUsers(data["filter"]));
+      if (data['filter'].length) {
+        dispatch(getUsers(data['filter']));
       }
-      navigate("/search-users");
+      navigate('/search-users');
       reset();
       setShowForm(false);
     } else {
-      console.log("ite false");
+      console.log('ite false');
       setShowForm(true);
     }
   };
@@ -43,17 +43,17 @@ export const UsersSearchBar = () => {
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={!showForm ? styles.show : ""}
+        className={!showForm ? styles.show : ''}
       >
         <input
-          type="text"
-          placeholder="Look For new Friends..."
-          id="filter"
-          {...register("filter")}
-          autoComplete="off"
+          type='text'
+          placeholder='Look For new Friends...'
+          id='filter'
+          {...register('filter')}
+          autoComplete='off'
         />
-        <button type="submit">
-          <img src={searchIcon} alt="" />
+        <button type='submit'>
+          <img src={searchIcon} alt='' />
         </button>
       </form>
     </div>
