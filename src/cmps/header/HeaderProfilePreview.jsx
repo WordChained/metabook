@@ -13,6 +13,7 @@ import {
   getNotifications,
   updateNotificationsStatus,
 } from '../../store/actions/notificationActions';
+import { socketService } from '../../services/socketService';
 
 export const HeaderProfilePreview = ({
   user,
@@ -51,6 +52,9 @@ export const HeaderProfilePreview = ({
   };
   useEffect(() => {
     dispatch(getNotifications(user.userId, getUnreadNotifications));
+    socketService.on('notification-added', () => {
+      dispatch(getNotifications(user.userId, getUnreadNotifications));
+    });
   }, []);
 
   return (

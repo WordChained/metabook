@@ -80,7 +80,18 @@
     opacity: 0.5;
   }
 }
-
+.placeholder {
+  background-color: #373737;
+  width: 100%;
+  max-width: 668px;
+  align-self: center;
+  padding: 12px 16px 10px;
+  border-radius: 7px;
+  gap: 3px;
+  position: relative;
+  text-align: center;
+  font-size: 1.3rem;
+}
 /* @media (max-width: 1200px) {
   .posts {
     width: 50%;

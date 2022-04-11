@@ -7,6 +7,7 @@ import { UpdateModal } from './singlePost/UpdateModal';
 export const Posts = () => {
   const { loggedInUser } = useSelector((state) => state.userModule);
   const { items, currentPost } = useSelector((state) => state.itemModule);
+  const { friends } = useSelector((state) => state.friendsModule);
 
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ export const Posts = () => {
     getPosts();
   }, []);
 
-  if (!items.posts?.length) {
+  if (!items.posts) {
     return (
       <div className={styles['lds-grid']}>
         <div></div>
@@ -39,9 +40,13 @@ export const Posts = () => {
       {currentPost && (
         <UpdateModal previousText={currentPost.text} post={currentPost} />
       )}
-      {items.posts.map((post) => (
-        <SinglePost key={post._id} post={post} />
-      ))}
+      {items.posts.length > 0 ? (
+        items.posts.map((post) => <SinglePost key={post._id} post={post} />)
+      ) : (
+        <div className={styles.placeholder}>
+          No posts yet... Try making friends :)
+        </div>
+      )}
     </section>
   );
 };

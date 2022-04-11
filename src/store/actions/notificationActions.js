@@ -1,11 +1,12 @@
 import { eventBusService } from '../../services/eventBusService.js';
 import { httpService } from '../../services/httpService.js';
+import { socketService } from '../../services/socketService.js';
 
-export const getNotifications = (userId, getUnreadNotifications) => {
+export const getNotifications = (userId, getUnreadNotifications = null) => {
     return async dispatch => {
         try {
             const notifications = await httpService.get(`notification/${userId}`)
-            getUnreadNotifications(notifications)
+            if (getUnreadNotifications != null) getUnreadNotifications(notifications)
             dispatch({ type: 'GET_NOTIFICATIONS', notifications })
         } catch (error) {
             console.log('getNotifications error:', error);
@@ -45,6 +46,8 @@ export const sendNotification = (data) => {
     return async dispatch => {
         try {
             const newNotification = await httpService.post(`notification/add`, { notification })
+            console.log("newNotification:", newNotification);
+            socketService.emit('notification', newNotification)
             dispatch({ type: 'ADD_NOTIFICATION', newNotification })
         } catch (error) {
             console.log('getNotifications error:', error);

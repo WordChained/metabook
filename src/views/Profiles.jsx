@@ -45,7 +45,7 @@ const Profiles = () => {
     console.log('re-checking');
     checkIsFriend();
     checkIsPendingFriend();
-  }, [friends, pendingFriends]);
+  }, [friends, pendingFriends, isFriend]);
 
   const onGetUser = () => {
     dispatch(getUserForProfile(id, returnUser));

@@ -22,6 +22,7 @@ import { PostMediaModal } from './cmps/singlePost/PostMediaModal';
 import { setReady, setLoggedIn } from './store/actions/userActions';
 import { getUserFromLocalStorage } from './services/userService'
 import { CoverScreen } from './UI/CoverScreen'
+import { socketService } from './services/socketService';
 
 const Profiles = React.lazy(() => import("./views/Profiles"))
 // import styles from './App.module.css'
@@ -35,6 +36,10 @@ function App() {
     const currUser = getUserFromLocalStorage()
     if (currUser) {
       dispatch(setLoggedIn(true, currUser))
+      socketService.setup()
+      socketService.on('connect', () => {
+        socketService.emit('setUserId', currUser.userId)
+      })
     }
     dispatch(setReady(true))
   }, []);

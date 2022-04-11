@@ -13,6 +13,14 @@
   align-self: center;
   border-radius: 10px;
   overflow: hidden;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container div {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .media-container img,

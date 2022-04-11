@@ -30,7 +30,7 @@ export const addFriend = (userId, friendId, status, onSendNotification) => {
             }
         } catch (error) {
             console.log('addFriend error:', error);
-            eventBusService.emit('userMsg', { msg: `Failed to send friend request!` })
+            eventBusService.emit('userMsg', { msg: status === 'request' ? 'Failed to Send Friend Request' : 'Failed to Approve Friend Request' })
         }
     }
 }
