@@ -1,10 +1,10 @@
 import Axios from 'axios'
 // import { router } from '@/router'
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? '//wordchained.github.io/metabook/'
+    ? '//metabook-wordchained-frontend.herokuapp.com/api/'
     : '//localhost:3030/api/'
 
-//
+//wordchained.github.io/metabook/
 // ? '//free-chat-1.herokuapp.com/'
 
 var axios = Axios.create({
