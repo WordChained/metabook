@@ -95,7 +95,6 @@ function App() {
           <Users />
         </PrivateRoute>} />
         <Route path='/' element={<PrivateRoute><HomePage /></PrivateRoute>} />
-
       </Routes>
     </BrowserRouter>
   );
