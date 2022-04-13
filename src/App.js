@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, useMemo } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { AppHeader } from './cmps/header/AppHeader';
 import {
   BrowserRouter,
@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './App.module.css'
 import { HomePage } from './views/HomePage';
@@ -14,7 +14,6 @@ import { MyProfilePage } from './views/MyProfilePage';
 import { LandingPage } from './views/LandingPage';
 import { StoriesPage } from './views/StoriesPage';
 import { ErrorPage } from './views/ErrorPage';
-// import { Profiles } from './views/Profiles';
 
 import { Users } from './views/Users';
 import { UserMsg } from './cmps/UserMsg'
