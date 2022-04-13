@@ -3,7 +3,6 @@ import io from 'socket.io-client'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? 'https://wordchained.github.io/metabook/' : '//localhost:3030'
 export const socketService = createSocketService()
-
 // socketService.setup()
 function createSocketService() {
     let socket = null;
