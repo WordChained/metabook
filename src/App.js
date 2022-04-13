@@ -75,7 +75,6 @@ function App() {
       <UserMsg />
       <PostMediaModal />
       <Routes>
-        <Route path='*' element={<ErrorPage />} />
         {/* removed privateRoute from 'Profiles' cause it caused an endless loop */}
         <Route path='/profiles/:id' element={<Suspense fallback={(<div className={styles['lds-grid']}>
           <div></div>
@@ -95,6 +94,7 @@ function App() {
           <Users />
         </PrivateRoute>} />
         <Route path='/' element={<PrivateRoute><HomePage /></PrivateRoute>} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
