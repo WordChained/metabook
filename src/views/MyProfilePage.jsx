@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import styles from './MyProfilePage.module.css';
+import { useSelector } from 'react-redux';
 
 import { CreatePost } from '../cmps/createPost/CreatePost';
 import { MyPosts } from '../cmps/profile/MyPosts';

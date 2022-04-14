@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import styles from './MyProfilePage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getUserForProfile } from '../store/actions/userActions';
 import { MyPosts } from '../cmps/profile/MyPosts';
-import styles from './MyProfilePage.module.css';
 // import { CreatePost } from '../cmps/createPost/CreatePost';
 // import { MyImages } from '../cmps/profile/MyImages';
 import { FriendsList } from '../cmps/profile/FriendsList';
