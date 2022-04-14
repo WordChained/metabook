@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "dotenv": "^16.0.0",
     "emoji-picker-react": "^3.5.1",
     "gsap": "^3.10.3",
     "mini-css-extract-plugin": "^2.6.0",
