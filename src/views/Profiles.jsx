@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getUserForProfile } from '../store/actions/userActions';
 import { MyPosts } from '../cmps/profile/MyPosts';
-import styles from './MyProfilePage.module.css';
+import styles from './myprofilepage.module.css';
 // import { CreatePost } from '../cmps/createPost/CreatePost';
 // import { MyImages } from '../cmps/profile/MyImages';
 import { FriendsList } from '../cmps/profile/FriendsList';
