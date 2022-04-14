@@ -1,6 +1,4 @@
-// import { UNSPLASH_ACCESS_KEY } from "../secrets";
-
-
+import { UNSPLASH_ACCESS_KEY } from "../secrets";
 
 export const unsplashService = {
     searchUnsplash,
