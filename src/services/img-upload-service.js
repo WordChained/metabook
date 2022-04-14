@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CLOUDINARY_UPLOAD_PRESET } from '../secrets';
+// import { CLOUDINARY_UPLOAD_PRESET } from '../secrets';
 //cloudinary-service
 // AXIOS
 
