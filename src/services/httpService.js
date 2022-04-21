@@ -1,6 +1,6 @@
 import Axios from 'axios'
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? '//https://metabook-wordchained.herokuapp.com/api/'
+    ? '//metabook-wordchained.herokuapp.com/api/'
     : '//localhost:3030/api/'
 
 // ? '//free-chat-1.herokuapp.com/'
