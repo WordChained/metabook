@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { CLOUDINARY_UPLOAD_PRESET } from '../secrets';
 // import { secrets } from '../secrets';
-console.log("secrets", await secrets);
 //cloudinary-service
 // AXIOS
-
+console.log('====================================');
+console.log(process.env);
+console.log('====================================');
 export const uploadImg = async (file, userId = 'unknown') => {
   // Defining our variables
   const UPLOAD_PRESET = CLOUDINARY_UPLOAD_PRESET // Insert yours
