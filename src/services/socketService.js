@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 
-const baseUrl = (process.env.NODE_ENV === 'production') ? 'https:/https://metabook-wordchained.herokuapp.com/' : '//localhost:3030'
+const baseUrl = (process.env.NODE_ENV === 'production') ? '//metabook-wordchained.herokuapp.com/' : '//localhost:3030'
 export const socketService = createSocketService()
 // socketService.setup()
 function createSocketService() {
