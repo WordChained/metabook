@@ -17,6 +17,7 @@ import plus from '../../assets/imgs/plus.png';
 
 import { signup } from '../../store/actions/userActions';
 import { validate, titleCase } from '../../services/utilService';
+import { secrets } from '../../secrets';
 
 export const Signup = ({ setCheckIfUser }) => {
   const { register, handleSubmit } = useForm();
@@ -24,6 +25,7 @@ export const Signup = ({ setCheckIfUser }) => {
   const [showPassword, setShowPassword] = useState(false);
   // const [latLng, setLatLng] = useState(null);
   // const [place, setPlace] = useState(null);
+  const [secret, setSecret] = useState(null);
   // const [preview, setPreview] = useState();
   // const [fileToUpload, setFileToUpload] = useState();
   // const [previewLoader, setPreviewLoader] = useState(false);
@@ -107,6 +109,11 @@ export const Signup = ({ setCheckIfUser }) => {
   };
 
   const onSubmit = async (data) => {
+    try {
+      setSecret(await secrets);
+    } catch (err) {
+      console.log('couldnt grab secrets');
+    }
     // const uploadedFileRes = await uploadImg(fileToUpload);
     const userEmail = data['email-input'].trim();
     const userPassword = data['password-input'].trim();
@@ -311,7 +318,7 @@ export const Signup = ({ setCheckIfUser }) => {
         {/* <Autocomplete
           required
           placeholder="Enter Your Address*"
-          apiKey={googleMapApiKey}
+          apiKey={secret.googleMapApiKey}
           style={{ width: '90%' }}
           onPlaceSelected={(place) => {
             setLatLng({

@@ -1,12 +1,18 @@
-import { UNSPLASH_ACCESS_KEY } from "../secrets";
-
+// import { UNSPLASH_ACCESS_KEY } from "../secrets";
+import { secrets } from "../secrets";
 export const unsplashService = {
     searchUnsplash,
     fetchResults
 }
 
 async function searchUnsplash(searchQuery) {
-    const endpoint = `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=${UNSPLASH_ACCESS_KEY}`;
+    let sec
+    try {
+        sec = await secrets
+    } catch (err) {
+        console.log("couldnt grab secrets");
+    }
+    const endpoint = `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=${sec.UNSPLASH_ACCESS_KEY}`;
     const response = await fetch(endpoint);
     if (!response.ok) {
         throw Error(response.statusText);
