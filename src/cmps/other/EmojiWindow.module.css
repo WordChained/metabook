@@ -5,24 +5,24 @@
   z-index: 2;
 }
 
-.emoji-window-container .emoji-picker-react {
-  background-color: #2d3436;
+.emoji-window-container aside.emoji-picker-react {
+  background-color: #2d3436 !important;
   /* box-shadow: -2px 2px 5px black; */
-  box-shadow: none;
-  border: 1px solid #5d5d5d;
+  box-shadow: none !important;
+  border: 1px solid #5d5d5d !important;
   padding: 5px;
 }
-.emoji-window-container .emoji-picker-react nav {
+.emoji-window-container aside.emoji-picker-react nav {
   margin-bottom: 5px;
 }
-.emoji-window-container .emoji-picker-react nav > * {
+.emoji-window-container aside.emoji-picker-react nav > * {
   background-color: rgb(105, 105, 105) !important;
   /* box-shadow: -2px 2px 5px black;
   border: none;
   padding: 5px; */
 }
 
-.emoji-window-container .emoji-picker-react div:nth-child(3) input {
+.emoji-window-container aside.emoji-picker-react div:nth-child(3) input {
   background-color: #282c34;
   color: white;
   border: none !important;
