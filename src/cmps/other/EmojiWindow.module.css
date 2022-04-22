@@ -5,23 +5,24 @@
   z-index: 2;
 }
 
-.emoji-window-container aside {
-  background-color: rgb(46, 46, 46);
-  box-shadow: -2px 2px 5px black;
-  border: none;
+.emoji-window-container .emoji-picker-react {
+  background-color: #2d3436;
+  /* box-shadow: -2px 2px 5px black; */
+  box-shadow: none;
+  border: 1px solid #5d5d5d;
   padding: 5px;
 }
-.emoji-window-container aside nav {
+.emoji-window-container .emoji-picker-react nav {
   margin-bottom: 5px;
 }
-.emoji-window-container aside nav > * {
+.emoji-window-container .emoji-picker-react nav > * {
   background-color: rgb(105, 105, 105) !important;
   /* box-shadow: -2px 2px 5px black;
   border: none;
   padding: 5px; */
 }
 
-.emoji-window-container aside div:nth-child(3) input {
+.emoji-window-container .emoji-picker-react div:nth-child(3) input {
   background-color: #282c34;
   color: white;
   border: none !important;
