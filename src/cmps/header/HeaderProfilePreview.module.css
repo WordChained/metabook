@@ -89,3 +89,9 @@
 .preview-container .dropdown-window-btn-container:hover {
   background-color: rgb(98, 98, 98);
 }
+
+@media (max-width: 1000px) {
+  .preview-container {
+    display: none;
+  }
+}

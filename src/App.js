@@ -22,6 +22,8 @@ import { setReady, setLoggedIn } from './store/actions/userActions';
 import { getUserFromLocalStorage } from './services/userService'
 import { CoverScreen } from './UI/CoverScreen'
 import { socketService } from './services/socketService';
+import { Notifications } from './views/Notifications';
+import { Settings } from './views/Settings';
 
 const Profiles = React.lazy(() => import("./views/Profiles"))
 // import styles from './App.module.css'
@@ -89,6 +91,8 @@ function App() {
         </div>)}><Profiles /></Suspense>} />
         <Route path='/my-profile' element={<PrivateRoute><MyProfilePage /></PrivateRoute>} />
         <Route path='/stories' element={<PrivateRoute><StoriesPage /></PrivateRoute>} />
+        <Route path='/notifications' element={<PrivateRoute><Notifications /></PrivateRoute>} />
+        <Route path='/settings' element={<PrivateRoute><Settings /></PrivateRoute>} />
         <Route path='/:landing-page' element={<GuestsRoute><LandingPage /></GuestsRoute>} />
         <Route path='/search-users' element={<PrivateRoute>
           <Users />

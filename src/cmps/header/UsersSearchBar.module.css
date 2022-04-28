@@ -66,3 +66,15 @@
 .container form.show button img {
   transform: rotate(90deg);
 }
+
+@media (max-width: 1000px) {
+  .close-search {
+    display: flex;
+    align-items: center;
+    height: 70px;
+  }
+  .close-search img {
+    filter: invert(90%) sepia(10%) saturate(86%) hue-rotate(185deg)
+      brightness(105%) contrast(87%);
+  }
+}

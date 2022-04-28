@@ -11,11 +11,23 @@
   padding: 0 20px 0 20px;
   box-shadow: 0px 4px 0px #242829;
   z-index: 2;
+  transition: all 0.2s linear;
 }
+.logo-row {
+  display: flex;
+  gap: 5px;
+}
+
 .header img {
   padding: 5px 0 5px 0;
   height: 100%;
   cursor: pointer;
+  object-fit: contain;
+  max-height: 45px;
+}
+.header .logo {
+  object-fit: contain;
+  max-height: 70px;
 }
 
 .header nav {
@@ -58,4 +70,36 @@
 .header nav a.active img {
   filter: invert(36%) sepia(35%) saturate(3261%) hue-rotate(199deg)
     brightness(92%) contrast(90%);
+}
+
+@media (max-width: 1000px) {
+  .header {
+    top: -1px;
+    padding-top: 5px;
+    height: 140px;
+    flex-direction: column;
+  }
+  .header nav {
+    gap: 0;
+    justify-content: space-between;
+    max-width: 668px;
+    align-self: center;
+  }
+  .logo-row {
+    width: 100%;
+  }
+
+  .header .nav-icons {
+    min-height: 40px;
+    align-self: flex-end;
+    filter: invert(90%) sepia(10%) saturate(86%) hue-rotate(185deg)
+      brightness(105%) contrast(87%);
+  }
+  .header img:nth-child(4),
+  .header img:nth-child(5) {
+    height: 30px;
+  }
+  .header a {
+    height: 40%;
+  }
 }

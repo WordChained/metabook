@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import styles from './UsersSearchBar.module.css';
+
 import searchIcon from '../../assets/imgs/search.png';
+import xIcon2 from '../../assets/imgs/x-icon-2.png';
+
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../../store/actions/userActions';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
+import { useWindowSize } from '../../customHooks/useWindowSize';
+
 export const UsersSearchBar = () => {
+  const location = useLocation();
+  const windowSize = useWindowSize();
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,6 +61,14 @@ export const UsersSearchBar = () => {
         <button type='submit'>
           <img src={searchIcon} alt='' />
         </button>
+        {location.pathname === '/' && windowSize.width < 1000 && showForm && (
+          <div
+            onClick={() => setShowForm(false)}
+            className={styles['close-search']}
+          >
+            <img src={xIcon2} alt='' />
+          </div>
+        )}
       </form>
     </div>
   );

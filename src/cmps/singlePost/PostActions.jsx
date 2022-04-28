@@ -83,13 +83,13 @@ export const PostActions = ({
         if (object[reactionType].includes(userId)) {
           correctReactionType = reactionType;
         } else {
-          console.log('not in', reactionType);
+          // console.log('not in', reactionType);
         }
       }
       if (correctReactionType) {
         //if it does, splice and change it!
         checkSuccess = () => {};
-        console.log('correctReactionType:', correctReactionType);
+        // console.log('correctReactionType:', correctReactionType);
         const idx = post.engagement.reactions[type].findIndex(
           (id) => id === userId
         );
@@ -97,7 +97,7 @@ export const PostActions = ({
         post.engagement.reactions[type].push(userId);
       } else {
         //if it doesnt just add it
-        console.log('just adding');
+        // console.log('just adding');
         post.engagement.reactions[type].push(userId);
       }
     }
